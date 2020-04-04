@@ -7,6 +7,7 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{amsmath}
 
 % Enumeration settings
 \renewcommand\thesubsection{\thesection.\alph{subsection}}
@@ -34,19 +35,78 @@ Intagliata Emanuele}
 
 \subsubsection*{Step 1: number of degrees of freedom identification}
 
+We can verify the system has one degree of freedom since
+
+\[ \begin{split}
+n_b \cdot 3 \text{DOF} & - \\
+2 \text{DOF} & - \text{(hinge)} \\
+2 \text{DOF}  & - \text{(2 rollers)} \\
+1 \text{DOF} & = \text{(string)} \\
+1 \text{DOF}
+\end{split} \]
+
 We chose to solve the problem directly using Lagrange equation, so to have one equation only, as the system has one degree of freedom.
 
 \subsubsection*{Step 2: energy terms definition}
 
+\[ E_c = \frac{1}{2} \, J_1 \, \omega_1^2 + \frac{1}{2} \, M_2 \, v_2^2 \]
 
+\[
+V_e = \frac{1}{2} \, k_1 \, \Delta l_1^2 + \frac{1}{2} \, k_2 \, \Delta l_2^2 \, \text{;} %
+\quad V_g = M_2 \, g \, h_2
+\]
+\[
+\Rightarrow V = V_e + V_g = \frac{1}{2} \, k_1 \, \Delta l_1^2 + \frac{1}{2} \, k_2 \, \Delta l_2^2 + %
+M_2 \, g \, h_2
+\]
+
+\[ D = \frac{1}{2} \, c_1 \, \dot{\Delta l_1}^2 + \frac{1}{2} \, c_2 \, \dot{\Delta l_2}^2 \]
+
+Because the assignment's requests define external forces to compute the system's forced motion later on, we're assuming a vertical force $ F(t) $, directed upward, applied on $ M_2 $, so that we'll find a positive Lagrangian component.
+
+\[ \delta W = F(t) \, \delta y_2 \]
 
 \subsubsection*{Step 3: phisical variables as functions of independent ones}
 
+The independent variable $ \theta $ is chosen to be the one variable we need to describe the motion.
 
+\begin{flalign}
+  \omega_1 = \dot{\theta} && \nonumber
+\end{flalign}
+\begin{flalign}
+  v_2 = \dot{y_2} = \omega_1 \, R_2 = \dot{\theta} \, R_2 && \nonumber
+\end{flalign}
+\begin{flalign}
+  \dot{\Delta l_1} = \dot{\theta} \, R_2 \quad \text{(Rivals theorem)} \nonumber \\ %
+  \Rightarrow \Delta l_1 = \theta \, R_2 && \nonumber
+\end{flalign}
+\begin{flalign}
+  \dot{\Delta l_2} = - \dot{\theta} \, R_1 \quad \text{(Rivals theorem)} \nonumber \\ %
+  \Rightarrow \Delta l_2 = - \theta \, R_1 && \nonumber
+\end{flalign}
+\begin{flalign}
+  h_2 = y_2 = \theta \, R_2 %
+  \quad \text{(gravitational potential level $ = 0 $ at equilibrium point)} && \nonumber
+\end{flalign}
+\begin{flalign}
+  \delta y_2 = \delta \theta \, R_2 && \nonumber
+\end{flalign}
 
 \subsubsection*{Step 4: resulting equation}
 
+\[
+\delta_W = Q_\theta \, \delta \theta = F(t) \, \delta y_2 = %
+F(t) \, \delta \theta \, R_2 \Rightarrow Q_\theta = F(t) \, R_2
+\]
 
+\begin{align}
+  \frac{\partial}{\partial t} %
+  \Bigl(\frac{\partial E_c}{\partial \dot{\theta}}\Bigr) - %
+  \frac{\partial E_c}{\partial \theta} + %
+  \frac{\partial V}{\theta} + %
+  \frac{\partial D}{\partial \dot{\theta}} & = Q_\theta \notag \\
+  (J_1 + M_2 \, R_2^2) \, \ddot{\theta} + (c_1 \, R_2^2 + c_2 \, R_1^2) \, \dot{\theta} + (k_1 \, R_2^2 + k_2 \, R_1^2) \, \theta & = F(t) \, R_2 - M_2 \, g \, R_2 \notag
+\end{align}
 
 \subsection{Adimensional damping ratio}
 
