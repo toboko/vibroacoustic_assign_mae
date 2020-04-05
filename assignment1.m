@@ -15,47 +15,72 @@ g = 9.81;
 
 % a)
 
-% Passo 1: definizione energie
+syms F
 
-% E_c = (1/2) * J1 * omega1^2 + (1/2) * M2 * v2;
-
-% V_e = (1/2) * k1 * DELTA_L1^2 + (1/2) * k2 * DELTA_L2^2;
-% V_g = M2 * g * h2;
-% V = V_e + V_g;
-
-% D = (1/2) * c1 * DELTA_L1_dot^2 + (1/2) * c2 * DELTA_L2_dot^2;
-
-% delta_W = F * delta_y2; % Assumiamo una forza verticale diretta verso
-% l'alto applicata su M2
-
-% Passo 2: espressione variabili dipendenti in funzione di quelle
-% indipendenti
-
-% omega1 = theta_dot;
-% v2 = y2_dot = omega1 * R2 = theta_dot * R2;
-% DELTA_L2 = (Rivals) = - theta * R1;
-% DELTA_L2_dot = - theta_dot * R1;
-% DELTA_L1 = (Rivals) = theta * R2;
-% DELTA_L1_dot = theta_dot * R2;
-% h2 = (livello potenziale gravitazionale = 0 al punto di equilibrio) = y2
-% = theta * R2;
-% delta_y2 = delta_theta * R2;
-
-% Passo 3: sostituzione nell'equazione di Lagrange
-
-% delta_W = Q_theta * delta_theta = F * delta_y2 = F * delta_theta * R2 => Q_theta = F * R2;
-
-% d/d_t(d/d_theta_dot(E_c)) - d/d_theta(E_c) + d/d_theta(V) + d/d_theta_dot(D) =
-% Q_theta
+m_g = J1 + M2 * R2^2;
+c_g = c1 * R2^2 + c1 * R1^2;
+k_g = k1 * R2^2 + k2 * R1^2;
+a_g = F * R2 + M2 * g * R2;
 
 % b)
 
+csi = c_g / (2 * sqrt(m_g * k_g));
+
 % c)
 
+omega_n = sqrt(k_g / m_g);
+alpha = csi * omega_n;
+omega_d = sqrt(omega_n^2 - alpha^2);
 
 %% 2) Moto libero
 
 % a)
+
+% syms theta(t) t
+% 
+% Parameters
+% theta0 = 0.2;
+% omega0 = 1;
+% a_g_lib = vpa(subs(a_g,F,0),3); % Moto libero
+% 
+% ODE
+% Dtheta = diff(theta,t,1);
+% Ddtheta = diff(theta,t,2);
+% 
+% ode = Ddtheta * m_g + Dtheta * c_g + theta * k_g == a_g;
+% cond1 = theta(0) == theta0;
+% cond2 = Dtheta(0) == omega0;
+% conds = [cond1, cond2];
+% theta(t) = dsolve(ode,conds);
+% theta = simplify(theta);
+% 
+% % pretty(theta)
+
+% % Plot
+
+% fplot(theta,[0,1]);
+
+lambda = roots([m_g c_g k_g]);
+
+% Condizioni iniziali
+theta0 = 2;
+omega0 = 16;
+
+t = 0:0.01:10;
+
+X2 = (omega0 - lambda(1) * theta0)/(lambda(2) - lambda(1));
+X1 = theta0 - X2;
+
+theta = X1*exp(lambda(1)*t) + X2*exp(lambda(2)*t);
+
+% Grafico
+
+figure
+plot(t,theta);
+axis([-inf, inf, min(theta)*1.1, max(theta)*1.1]);
+title('Time response of system free motion');
+xlabel('time [s]'); ylabel('displacement [rad]');
+grid on
 
 % b)
 
