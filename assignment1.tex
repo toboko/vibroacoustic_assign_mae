@@ -108,12 +108,13 @@ The independent variable $ \theta $ is chosen to be the one variable we need to 
 \]
 
 
-\begin{align*}
+\begin{align}
+\label{eqn:motion}
   \frac{\partial}{\partial t} %
     \Bigl(\frac{\partial E_c}{\partial \dot{\theta}}\Bigr) - %
     \frac{\partial E_c}{\partial \theta} + %
     \frac{\partial V}{\theta} + %
-    \frac{\partial D}{\partial \dot{\theta}} & = Q_\theta \\
+    \frac{\partial D}{\partial \dot{\theta}} & = Q_\theta \notag \\
   \underbrace{(J_1 + M_2 \, R_2^2)}_ %
     {\text{generalized mass $ m_g $}} \, \ddot{\theta} + %
     \underbrace{(c_1 \, R_2^2 + c_2 \, R_1^2)}_ %
@@ -123,7 +124,7 @@ The independent variable $ \theta $ is chosen to be the one variable we need to 
     \underbrace{F(t) \, R_2 - M_2 \, g \, R_2}_ %
     {\substack{\text{active forces $ C_g(t) $} \\ %
     \text{(conservative/non conservative )}}}
-\end{align*}
+\end{align}
 
 \subsection{Adimensional damping ratio}
 
@@ -149,7 +150,43 @@ The independent variable $ \theta $ is chosen to be the one variable we need to 
 
 \section{Free motion of the system}
 
+The system's free motion is described by the general solution to the differential equation of motion, which corresponds to the solution to the homogeneous differential equation associated to ~ \eqref{eqn:motion}:
 
+\[ m_g \, \ddot{\theta} + c_g \, \dot{\theta} + k_g \, \theta = 0 \]
+
+We solved this equation manually, finding the characteristic polynomial roots and summing the two resulting exponential functions, each with one of the two eigenvalues. The solution, plotted below, has the analytic form
+
+\[ \begin{split}
+\theta(t) & = X_1 \, e^{\lambda_1 \, t} + X_2 \, e^{\lambda_2 \, t} = \\
+          & = X_1 \, e^{(-\alpha + j \, \omega_d) \, t} + %
+            X_2 \, e^{(-\alpha - j \, \omega_d) \, t} = \\
+          & = e^{-\alpha \, t} \, %
+            (X_1 \, e^{j \, \omega_d \, t} + X_2 \, e^{- j \, \omega_d \, t})
+\end{split} \]
+
+which represents an oscillatory behavior modulated by a decaying exponential, as expected, and where the coefficients $ X_1 $ and $ X_2 $ are computed starting from the system parameters and the initial conditions according to the following relations:
+
+\[
+\begin{cases}
+  X_1 = \theta_0 - \frac{\omega_0 - \lambda_1 \, \theta_0} %
+    {\lambda_2 - \lambda_1} \\
+  X_2 = \frac{\omega_0 - \lambda_1 \, \theta_0} %
+    {\lambda_2 - \lambda_1}
+\end{cases}
+\]
+
+The shown time response is obtained with these arbitrary initial conditions:
+
+\[
+\begin{cases}
+  \theta(t=0) = \theta_0 = 2 ~ \text{rad} \\
+  \dot{\theta}(t=0) = \omega_0 = 16 ~ \text{rad/s}
+\end{cases}
+\]
+
+\vspace{16pt}
+
+\includegraphics[scale=0.3]{free_response_time.jpg}
 
 \subsection{Generic initial conditions}
 
