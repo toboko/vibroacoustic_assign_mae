@@ -18,41 +18,41 @@ g = 9.81;
 syms F
 
 m_g = J1 + M2 * R2^2;
-c_g = c1 * R2^2 + c1 * R1^2;
+c1_g = c1 * R2^2 + c1 * R1^2;
 k_g = k1 * R2^2 + k2 * R1^2;
 C_g = F * R2 + M2 * g * R2;
 
 % b)
 
-csi = c_g / (2 * sqrt(m_g * k_g));
+csi1 = c1_g / (2 * sqrt(m_g * k_g));
 
 % c)
 
 omega_n = sqrt(k_g / m_g);
-alpha = csi * omega_n;
+alpha = csi1 * omega_n;
 omega_d = sqrt(omega_n^2 - alpha^2);
 
 %% 2) Moto libero
 
 % a)
 
-lambda = roots([m_g c_g k_g]);
+lambda1 = roots([m_g c1_g k_g]);
 
 % Condizioni iniziali
 theta0 = 2;
 omega0 = 16;
 
-t = 0:0.01:10;
+t = 0:0.01:15;
 
-X2 = (omega0 - lambda(1) * theta0)/(lambda(2) - lambda(1));
+X2 = (omega0 - lambda1(1) * theta0)/(lambda1(2) - lambda1(1));
 X1 = theta0 - X2;
 
-theta = X1*exp(lambda(1)*t) + X2*exp(lambda(2)*t);
+theta1 = X1*exp(lambda1(1)*t) + X2*exp(lambda1(2)*t);
 
 % Grafico
 figure
-plot(t,theta);
-axis([-inf, inf, min(theta)*1.1, max(theta)*1.1]);
+plot(t,theta1);
+axis([-inf, inf, min(theta1)*1.1, max(theta1)*1.1]);
 title('Time response of system free motion');
 xlabel('time [s]'); ylabel('displacement [rad]');
 grid on
@@ -80,12 +80,109 @@ grid on
 
 % b)
 
+c2_g = c1_g / 2;
+csi2 = c2_g / (2 * sqrt(m_g * k_g));
+
+lambda2 = roots([m_g c2_g k_g]);
+
+X2 = (omega0 - lambda2(1) * theta0)/(lambda2(2) - lambda2(1));
+X1 = theta0 - X2;
+
+theta2 = X1*exp(lambda2(1)*t) + X2*exp(lambda2(2)*t);
+
+% Grafico
+figure
+plot(t,theta2);
+axis([-inf, inf, min(theta2)*1.1, max(theta2)*1.1]);
+title('Time response of system free motion (halved damping ratio)');
+xlabel('time [s]'); ylabel('displacement [rad]');
+grid on
+
 % c)
 
+csi3 = 1.2;
+c3_g = csi3 * 2 * m_g * omega_n;
+
+lambda3 = roots([m_g c3_g k_g]);
+
+X2 = (omega0 - lambda2(1) * theta0)/(lambda2(2) - lambda2(1));
+X1 = theta0 - X2;
+
+theta3 = X1*exp(lambda3(1)*t) + X2*exp(lambda3(2)*t);
+
+% Grafico
+figure
+plot(t,theta3);
+axis([-inf, inf, min(real(theta3))*1.1, max(theta3)*1.1]);
+title('Time response of system free motion (damping ratio = 1.2)');
+xlabel('time [s]'); ylabel('displacement [rad]');
+grid on
 
 %% 3) Moto forzato
 
 % a)
+
+omega = 0:0.01:5*omega_d;
+
+% Caso 1: 2a)
+
+FRF1 = 1./(-m_g*omega.^2 + 1i*omega*c1_g + k_g);
+
+figure
+
+subplot(2,1,1)
+plot(omega, abs(FRF1));
+axis([-inf, inf, -inf, inf]);
+title('Frequency Response Function modulus');
+xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
+grid on
+
+subplot(2,1,2)
+plot(omega, angle(FRF1));
+axis([-inf, inf, -pi, pi]);
+title('Frequency Response Function phase');
+xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+grid on
+
+% Caso 2: 2b)
+
+FRF2 = 1./(-m_g*omega.^2 + 1i*omega*c2_g + k_g);
+
+figure
+
+subplot(2,1,1)
+plot(omega, abs(FRF2));
+axis([-inf, inf, -inf, inf]);
+title('Frequency Response Function modulus (halved damping ratio)');
+xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
+grid on
+
+subplot(2,1,2)
+plot(omega, angle(FRF2));
+axis([-inf, inf, -pi, pi]);
+title('Frequency Response Function phase (halved damping ratio)');
+xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+grid on
+
+% Caso 3: 2c)
+
+FRF3 = 1./(-m_g*omega.^2 + 1i*omega*c3_g + k_g);
+
+figure
+
+subplot(2,1,1)
+plot(omega, abs(FRF3));
+axis([-inf, inf, -inf, inf]);
+title('Frequency Response Function modulus (damping ratio = 1.2)');
+xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
+grid on
+
+subplot(2,1,2)
+plot(omega, angle(FRF3));
+axis([-inf, inf, -pi, pi]);
+title('Frequency Response Function phase (damping ratio = 1.2)');
+xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+grid on
 
 % b)
 
