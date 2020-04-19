@@ -35,6 +35,7 @@ csi1 = c1_g / (2 * sqrt(m_g * k_g));
 omega_n = sqrt(k_g / m_g);
 alpha = csi1 * omega_n;
 omega_d = sqrt(omega_n^2 - alpha^2);
+f_d = omega_d/(2*pi);
 
 %% 2) Moto libero
 
@@ -46,7 +47,9 @@ lambda1 = roots([m_g c1_g k_g]);
 theta0 = 2;
 omega0 = 16;
 
-t = 0:0.01:15;
+f_s = 100;
+T = 15;
+t = 0:1/f_s:T;
 
 X2 = (omega0 - lambda1(1) * theta0)/(lambda1(2) - lambda1(1));
 X1 = theta0 - X2;
@@ -57,8 +60,8 @@ theta1_lib = X1*exp(lambda1(1)*t) + X2*exp(lambda1(2)*t);
 figure
 plot(t,theta1_lib);
 axis([-inf, inf, min(theta1_lib)*1.1, max(theta1_lib)*1.1]);
-title('Time response of system free motion');
-xlabel('time [s]'); ylabel('displacement [rad]');
+title('Time response of system free motion','FontSize',16);
+xlabel('time t [s]','FontSize',12); ylabel('rotation \theta_{free}(t) [rad]','FontSize',12);
 grid on
 
 % Metodo alternativo usando funzioni per risolvere equazioni differenziali
@@ -98,8 +101,8 @@ theta2_lib = X1*exp(lambda2(1)*t) + X2*exp(lambda2(2)*t);
 figure
 plot(t,theta2_lib);
 axis([-inf, inf, min(theta2_lib)*1.1, max(theta2_lib)*1.1]);
-title('Time response of system free motion (halved damping ratio)');
-xlabel('time [s]'); ylabel('displacement [rad]');
+title('Time response of system free motion (halved damping ratio)','FontSize',16);
+xlabel('time t [s]','FontSize',12); ylabel('rotation \theta_{free}(t) [rad]','FontSize',12);
 grid on
 
 % c)
@@ -118,8 +121,8 @@ theta3_lib = X1*exp(lambda3(1)*t) + X2*exp(lambda3(2)*t);
 figure
 plot(t,theta3_lib);
 axis([-inf, inf, min(real(theta3_lib))*1.1, max(theta3_lib)*1.1]);
-title('Time response of system free motion (damping ratio = 1.2)');
-xlabel('time [s]'); ylabel('displacement [rad]');
+title('Time response of system free motion (damping ratio = 1.2)','FontSize',16);
+xlabel('time t [s]','FontSize',12); ylabel('rotation \theta_{free}(t) [rad]','FontSize',12);
 grid on
 
 %% 3) Moto forzato
@@ -127,7 +130,7 @@ grid on
 % a)
 
 stepsize = 100;
-omega = 0:1/stepsize:5*omega_d;
+omega = 0:1/stepsize:4*omega_d;
 
 % Caso 1: 2a)
 
@@ -137,16 +140,16 @@ figure
 
 subplot(2,1,1)
 plot(omega, abs(FRF1));
-axis([-inf, inf, -inf, inf]);
-title('Frequency Response Function modulus');
-xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
+axis([-inf, inf, 0, max(abs(FRF1))*1.1]);
+title('Frequency Response Function modulus','FontSize',16);
+xlabel('radian frequency \omega [rad/s]','FontSize',12); ylabel('|H(\omega)|','FontSize',12);
 grid on
 
 subplot(2,1,2)
 plot(omega, angle(FRF1));
 axis([-inf, inf, -pi, pi]);
-title('Frequency Response Function phase');
-xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+title('Frequency Response Function phase','FontSize',16);
+xlabel('radian frequency \omega [rad/s]','FontSize',12); ylabel('$ \angle\bigl(H(\omega)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
 % Caso 2: 2b)
@@ -157,16 +160,16 @@ figure
 
 subplot(2,1,1)
 plot(omega, abs(FRF2));
-axis([-inf, inf, -inf, inf]);
-title('Frequency Response Function modulus (halved damping ratio)');
-xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
+axis([-inf, inf, 0, max(abs(FRF2))*1.1]);
+title('Frequency Response Function modulus (halved damping ratio)','FontSize',16);
+xlabel('radian frequency \omega [rad/s]','FontSize',12); ylabel('|H(\omega)|','FontSize',12);
 grid on
 
 subplot(2,1,2)
 plot(omega, angle(FRF2));
 axis([-inf, inf, -pi, pi]);
-title('Frequency Response Function phase (halved damping ratio)');
-xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+title('Frequency Response Function phase (halved damping ratio)','FontSize',16);
+xlabel('radian frequency \omega [rad/s]','FontSize',12); ylabel('$ \angle\bigl(H(\omega)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
 % Caso 3: 2c)
@@ -177,16 +180,16 @@ figure
 
 subplot(2,1,1)
 plot(omega, abs(FRF3));
-axis([-inf, inf, -inf, inf]);
-title('Frequency Response Function modulus (damping ratio = 1.2)');
-xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
+axis([-inf, inf, 0, max(abs(FRF3))*1.1]);
+title('Frequency Response Function modulus (damping ratio = 1.2)','FontSize',16);
+xlabel('radian frequency \omega [rad/s]','FontSize',12); ylabel('|H(\omega)|','FontSize',12);
 grid on
 
 subplot(2,1,2)
 plot(omega, angle(FRF3));
 axis([-inf, inf, -pi, pi]);
-title('Frequency Response Function phase (damping ratio = 1.2)');
-xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+title('Frequency Response Function phase (damping ratio = 1.2)','FontSize',16);
+xlabel('radian frequency \omega [rad/s]','FontSize',12); ylabel('$ \angle\bigl(H(\omega)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
 % b)
@@ -229,9 +232,9 @@ figure
 plot(t,theta1_case1); hold on
 plot(t,theta1_case2);
 plot(t,theta1_case3);
-%axis([-inf, inf, min(real(theta1_case1))*1.1, max(theta1_case1)*1.1]);
-title('Complete time responses');
-xlabel('time [s]'); ylabel('displacement [rad]');
+axis([-inf, inf, min([real(theta1_case1), real(theta1_case2), real(theta1_case3)])*1.1, max([real(theta1_case1), real(theta1_case2), real(theta1_case3)])*1.1]);
+title('Complete time responses','FontSize',16);
+xlabel('time t [s]','FontSize',12); ylabel('rotation \theta(t) [rad]','FontSize',12);
 legend('case 1','case 2','case 3');
 grid on
 
@@ -262,32 +265,44 @@ theta1_forced_harm3 = B3/R2*abs(FRF1(index3))*cos(2*pi*f3*t + phi3 + angle(FRF1(
 
 theta1_forced = theta1_forced_harm1 + theta1_forced_harm2 + theta1_forced_harm3;
 
+pow = 2^nextpow2(length(theta1_forced));
+N_fft = 2^(nextpow2(length(theta1_forced)) + 3);
+
+THETA1_FORCED = fft(theta1_forced,N_fft)/pow;
+F_TOT = fft(F_tot,N_fft)/(pow/2.8);
+
+f = linspace(0,f_s,length(THETA1_FORCED));
+
 % Grafico
 figure
 
 subplot(3,1,1)
 plot(t,theta1_forced);
 axis([-inf, inf, min(theta1_forced)*1.1, max(theta1_forced)*1.1]);
-title('Forced time response');
-xlabel('time [s]'); ylabel('displacement [rad]');
+title('Forced time response','FontSize',16);
+xlabel('time t [s]','FontSize',12); ylabel('rotation \theta_{forced}(t) [rad]','FontSize',12);
 grid on
 
 subplot(3,1,2)
-plot(omega1, abs(B1)*abs(FRF1(index1))); hold on
-plot(omega2, abs(B2)*abs(FRF1(index2))); hold on
-plot(omega3, abs(B3)*abs(FRF1(index3)));
-%axis([-inf, inf, -inf, inf]);
-title('Forced responce amplitude spectrum');
-xlabel('\omega [rad/sample]'); ylabel('$|\Theta_{forced}(\omega)|$', 'Interpreter', 'LaTeX');
+plot(f, abs(THETA1_FORCED),':'); hold on
+stem(f1, abs(B1) * abs(FRF1(index1))); hold on
+stem(f2, abs(B2) * abs(FRF1(index2))); hold on
+stem(f3, abs(B3) * abs(FRF1(index3)));
+axis([0, 4*f_d, 0, max([abs(THETA1_FORCED), abs(B1) * abs(FRF1(index1)), abs(B2) * abs(FRF1(index2)), abs(B3) * abs(FRF1(index3))])*1.1]);
+title('Forced response amplitude spectrum','FontSize',16);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|\Theta_{forced}(f)|','FontSize',12);
+legend('FFT','ideal');
 grid on
 
 subplot(3,1,3)
-plot(omega1, angle(B1) + angle(FRF1(index1))); hold on
-plot(omega2, angle(B2) + angle(FRF1(index2))); hold on
-plot(omega3, angle(B3) + angle(FRF1(index3)));
-%axis([-inf, inf, -pi, pi]);
-title('Forced responce phase spectrum');
-xlabel('\omega [rad/sample]'); ylabel('$\angle(\Theta_{forced}(\omega)) [rad]$', 'Interpreter', 'LaTeX');
+plot(f, angle(THETA1_FORCED),':'); hold on
+stem(f1, phi1 + angle(FRF1(index1))); hold on
+stem(f2, phi2 + angle(FRF1(index2))); hold on
+stem(f3, phi3 + angle(FRF1(index3)));
+axis([0, 4*f_d, -pi, pi]);
+title('Forced response phase spectrum','FontSize',16);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(\Theta_{forced}(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
+legend('FFT','ideal');
 grid on
 
 figure
@@ -295,62 +310,28 @@ figure
 subplot(3,1,1)
 plot(t,F_tot);
 axis([-inf, inf, min(F_tot)*1.1, max(F_tot)*1.1]);
-title('Complex force waveform');
-xlabel('time [s]'); ylabel('F(t) [N]');
+title('Complex force waveform','FontSize',16);
+xlabel('time t [s]','FontSize',12); ylabel('F(t) [N]','FontSize',12);
 grid on
 
 subplot(3,1,2)
-plot(omega1, abs(B1)); hold on
-plot(omega2, abs(B2)); hold on
-plot(omega3, abs(B3));
-%axis([-inf, inf, -inf, inf]);
-title('Complex force amplitude spectrum');
-xlabel('\omega [rad/sample]'); ylabel('|F(\omega)|');
+plot(f, abs(F_TOT),':'); hold on
+stem(f1, abs(B1)); hold on
+stem(f2, abs(B2)); hold on
+stem(f3, abs(B3));
+axis([0, 4*f_d, 0, max([abs(F_TOT), abs(B1), abs(B2), abs(B3)])*1.1]);
+title('Complex force amplitude spectrum','FontSize',16);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|F(f)|','FontSize',12);
+legend('FFT','ideal');
 grid on
 
 subplot(3,1,3)
-plot(omega1, angle(B1)); hold on
-plot(omega2, angle(B2)); hold on
-plot(omega3, angle(B3));
-%axis([-inf, inf, -pi, pi]);
-title('Complex force phase spectrum');
-xlabel('\omega [rad/sample]'); ylabel('\angle(F(\omega)) [rad]');
-grid on
-
-
-THETA1_FORCED = fft(theta1_forced);
-F_TOT = fft(F_tot);
-
-OMEGA = linspace(0,2,length(THETA1_FORCED));
-
-figure
-
-subplot(2,1,1)
-plot(OMEGA, abs(THETA1_FORCED));
-axis([0, 1, -inf, inf]);
-title('Forced responce amplitude spectrum');
-xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
-grid on
-
-subplot(2,1,2)
-plot(OMEGA, angle(THETA1_FORCED));
-axis([-inf, inf, -pi, pi]);
-title('Forced responce phase spectrum');
-xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
-grid on
-
-figure
-
-subplot(2,1,1)
-plot(OMEGA, abs(F_TOT));
-axis([0, 1, -inf, inf]);
-title('Complex force amplitude spectrum');
-xlabel('\omega [rad/sample]'); ylabel('$|\frac{\tilde{X_0}(\omega)}{F_0}|$', 'Interpreter', 'LaTeX');
-grid on
-
-subplot(2,1,2)
-plot(OMEGA, angle(F_TOT));
-axis([-inf, inf, -pi, pi]);
-title('Complex force phase spectrum');
-xlabel('\omega [rad/sample]'); ylabel('$\angle(\frac{\tilde{X_0}(\omega)}{F_0}) [rad]$', 'Interpreter', 'LaTeX');
+plot(f, angle(F_TOT),':'); hold on
+stem(f1, phi1); hold on
+stem(f2, phi2); hold on
+stem(f3, phi3);
+axis([0, 4*f_d, -pi, pi]);
+title('Complex force phase spectrum','FontSize',16);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(F(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
+legend('FFT','ideal');
 grid on
