@@ -9,6 +9,13 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{comment}
+\usepackage{geometry}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+
+% Margin dimensions settings
+\geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,%
+heightrounded,bindingoffset=5mm}
 
 % Enumeration settings
 \renewcommand\thesubsection{\thesection.\alph{subsection}}
@@ -20,9 +27,9 @@
 \title{Fundamentals of Vibration Analysis and Vibroacoustics \\
 Module 1 - Fundamentals of Vibration Analysis \\
 Assignment 1 - One-degree-of-freedom systems}
-\author{Bombaci Nicola \\
+\author{Bombaci Nicola 10677942 \\
 Fantin Jacopo 10591775 \\
-Intagliata Emanuele}
+Intagliata Emanuele 10544878}
 \date{April 2020}
 
 
@@ -30,14 +37,50 @@ Intagliata Emanuele}
 
 \maketitle
 
+\vspace{60pt}
+
+\section*{System schematic and parameters}
+
+\begin{wrapfloat}{figure}{I}{0pt}
+	\includegraphics[width=0.7\textwidth]{system_schematic}
+\end{wrapfloat}
+
+\[ \begin{split}
+	& \begin{cases}
+		M_1 = 1 \, \text{kg} \quad \text{,} \quad %
+		J_1 = 0.005 \, \text{kg m $ \! \! ^2 $} \\
+		M_2 = 0.35 \, \text{kg}
+	\end{cases} \\[30pt]
+	& \begin{cases}
+		R_1 = 0.1 \, \text{m} \\
+		R_2 = 0.3 \, \text{m}
+	\end{cases} \\[30pt]
+	& \begin{cases}
+		k_1 = 18 \, \text{N/m} \\
+		k_2 = 25 \, \text{N/m}
+	\end{cases} \\[30pt]
+	& \begin{cases}
+		c_1 = 0.7 \, \text{Ns/m} \\
+		c_2 = 1.2 \, \text{Ns/m}
+	\end{cases}
+\end{split} \]
+
+\clearpage
+
 \section{Equation of motion}
 
-% Initial data/system parameters
+As a preliminary step, a reference system and sign conventions must be fixed. We chose to follow the commonly employed cartesian axes system, the counterclockwise rotation as the positive one and the spring elongation as the positive variation of the spring length:
+
+\begin{figure}[H]
+	\centering
+	\subfigure{
+		\includegraphics[width=0.15\linewidth]{reference_axes}}
+	\hspace{50pt}
+	\subfigure{
+		\includegraphics[width=0.15\linewidth]{reference_spring}}
+\end{figure}
 
 \subsection{Equation derivation}
-
-% reference system/conventions
-% As a preliminary step,...
 
 \subsubsection*{Step 1: number of degrees of freedom identification}
 
@@ -51,7 +94,7 @@ We can verify the system has one degree of freedom since
 	1 ~ \text{DOF}
 \end{split} \]
 
-We chose to solve the problem directly using Lagrange equation, so to have one equation only, as the system has one degree of freedom.
+Where $ n_b $ is the number of bodies in the system, $ n_b = 2 $ in this case. We chose to solve the problem directly using Lagrange equation, so to have one equation only, as the system has one degree of freedom, depending on one independent variable, which we chose to be the disks $ M_1 $ rotation, $ \theta $.
 
 \subsubsection*{Step 2: energy terms definition}
 \label{subs:energy_terms}
@@ -82,28 +125,28 @@ Because the assignment's requests define external forces to compute the system's
 
 The independent variable $ \theta $ is chosen to be the one variable we need to describe the motion.
 
-\begin{flalign}
-	\omega_1 = \dot{\theta} && \nonumber
-\end{flalign}
-\begin{flalign}
-	v_2 = \dot{y_2} = \omega_1 \, R_2 = \dot{\theta} \, R_2 && \nonumber
-\end{flalign}
-\begin{flalign}
-	\dot{\Delta l_1} = \dot{\theta} \, R_2 \quad \text{(Rivals theorem)} \nonumber \\ %
+\begin{flalign*}
+	\omega_1 = \dot{\theta} &&
+\end{flalign*}
+\begin{flalign*}
+	v_2 = \dot{y_2} = \omega_1 \, R_2 = \dot{\theta} \, R_2 &&
+\end{flalign*}
+\begin{flalign*}
+	\dot{\Delta l_1} = \dot{\theta} \, R_2 \quad \text{(Rivals theorem)} \\ %
 		\Rightarrow \Delta l_1 = \theta \, R_2 && \nonumber
-\end{flalign}
-\begin{flalign}
-	\dot{\Delta l_2} = - \dot{\theta} \, R_1 \quad \text{(Rivals theorem)} \nonumber \\ %
-		\Rightarrow \Delta l_2 = - \theta \, R_1 && \nonumber
-\end{flalign}
-\begin{flalign}
+\end{flalign*}
+\begin{flalign*}
+	\dot{\Delta l_2} = - \dot{\theta} \, R_1 \quad \text{(Rivals theorem)} \\ %
+		\Rightarrow \Delta l_2 = - \theta \, R_1 &&
+\end{flalign*}
+\begin{flalign*}
 	h_2 = y_2 = \theta \, R_2 %
 		\quad \text{(gravitational potential level $ = 0 $ %
-		at equilibrium point)} && \nonumber
-\end{flalign}
-\begin{flalign}
-	\delta y_2 = \delta \theta \, R_2 && \nonumber
-\end{flalign}
+		at equilibrium point)} &&
+\end{flalign*}
+\begin{flalign*}
+	\delta y_2 = \delta \theta \, R_2 &&
+\end{flalign*}
 
 \subsubsection*{Step 4: resulting equation}
 
@@ -181,6 +224,10 @@ We solved this equation manually, finding the characteristic polynomial roots an
 which represents an oscillatory behavior modulated by a decaying exponential, as expected, and where the coefficients $ X_1 $ and $ X_2 $ are computed starting from the system parameters and the initial conditions according to the following relations:
 
 \[ \begin{cases}
+	\theta_0 = \theta_{free}(t = 0) = X_1 + X_2 \\
+	\omega_0 = \dot{\theta}_{free}(t = 0) = \lambda \, X_1 + \lambda \, X_2
+\end{cases}
+\Rightarrow \begin{cases}
 	X_1 = \theta_0 - \frac{\omega_0 - \lambda_1 \, \theta_0} %
 		{\lambda_2 - \lambda_1} \\
 	X_2 = \frac{\omega_0 - \lambda_1 \, \theta_0} %
@@ -193,15 +240,17 @@ which represents an oscillatory behavior modulated by a decaying exponential, as
 In order for the equation to be computed and represented in a diagram, some initial conditions need to be settled. The shown time response is obtained with these arbitrary initial conditions:
 
 \[ \begin{cases}
-	\theta(t=0) = \theta_0 = 2 \, \text{rad} \\
-	\dot{\theta}(t=0) = \omega_0 = 16 \, \text{rad/s}
+	\theta_0 = 2 \, \text{rad} \\
+	\omega_0 = 16 \, \text{rad/s}
 \end{cases} \]
+
+These values allow us for a clearer visualization of the motion, and an easier distinction between the transient and the steady-state behavior.
 
 \vspace{16pt}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.3]{free_response_time.jpg}
+	\includegraphics[scale=0.4]{free_time_response}
 \end{figure}
 
 \subsection{Halved adimensional damping ratio}
@@ -226,8 +275,10 @@ Assuming the same initial conditions as before, the free time response is depict
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.3]{free_response_time_halved_damping_ratio.jpg}
+	\includegraphics[scale=0.4]{free_time_response_halved_damping_ratio}
 \end{figure}
+
+\clearpage
 
 \subsection{Raised adimensional damping ratio}
 
@@ -242,9 +293,9 @@ We can appreciate the absence of vibration due to the absence of a couple of com
 
 \vspace{16pt}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.3]{free_response_time_overdamped.jpg}
+	\includegraphics[scale=0.4]{free_time_response_overdamped}
 \end{figure}
 
 
@@ -254,10 +305,10 @@ We now come to consider the system as excited by an external harmonic force in a
 
 \subsection{Frequency Response Function}
 
-First, the Frequency Response Function (FRF) has been computed from the system parameters: it's defined as the ratio between the amplitude of the forced vibration and the amplitude of the oscillation of the external harmonic excitation, which depends on the frequency of the external harmonic force.
+First, the Frequency Response Function (FRF) has been computed from the system parameters: it's defined as the ratio between the complex function embedding the forced vibration's amplitude and phase shift, which is a function of the forcing frequency, and the amplitude of the oscillation of the external harmonic excitation.
 
 \[
-	H(j\omega) = \frac{\tilde{X_0}}{F_0} = %
+	H(j\omega) = \frac{\tilde{\Theta}_0(\omega)}{F_0} = %
 		\frac{1}{m_g \, \omega^2 - j c_g \, \omega + k_g}
 \]
 
@@ -267,25 +318,31 @@ In this first case, we're plotting the FRF assuming the system parameters are th
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.3]{frf.jpg}
+	\includegraphics[scale=0.4]{frf}
 \end{figure}
 
 \subsubsection*{Case 2: halved adimensional damping ratio}
 
-Considering half the damping ratio, we expect the system to be closer to the ideal undamped case, which means that the peak in the modulus diagram is going to be sharper than in the previous case (getting closer to the asymptotic behavior typical of the undamped system) and the phase jump suddener in the phase diagram (getting closer to the ideal perfectly vertical jump of the undamped case).
+Considering half the damping ratio, we expect the system to be closer to the ideal undamped case, which means that the peak in the modulus diagram is going to be sharper than in the previous case (getting closer to the asymptotic behavior typical of the undamped system) and the phase jump suddener in the phase diagram (getting closer to the ideal perfectly vertical jump of the undamped case). It is worthy to say also the natural damped frequency changes, in accordance with relation \eqref{eqn:damped_frequency}: in particular, its value decreases proportionally to the damping factor $ \alpha $, so the higher the damping, the lower the damped natural frequency, the more the peak moves to the left in the modulus plot.
 
-\begin{figure}
+\vspace{16pt}
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.3]{frf_halved_damping_ratio.jpg}
+	\includegraphics[scale=0.4]{frf_halved_damping_ratio}
 \end{figure}
+
+\clearpage
 
 \subsubsection*{Case 3: raised adimensional damping ratio}
 
-In this third case, the adimensional damping ratio is set to $ \xi = 1.2 $, so we find ourselves in the case of the overdamped system. We're not expecting a clear peak in the amplitude diagram as the damped natural frequency doesn't appear in the analytic formula of the time response, i.e. the system free motion does not oscillate, so the FRF shape is not depending on the natural frequency of the system. We might notice that the maximum steady-state oscillation amplitude is found for $ \omega = 0 $, i.e. for a constant external force.
+In this third case, the adimensional damping ratio is set to $ \xi = 1.2 $, so we find ourselves in the case of the overdamped system. We're expecting a smooth low-pass-like curve in the amplitude diagram as the damped natural frequency doesn't appear in the analytic formula of the time response, i.e. the system free motion does not oscillate, so the FRF shape is not depending on the natural frequency of the system. We might notice that the maximum steady-state oscillation amplitude is found for $ \omega = 0 $, i.e. for a constant external force.
 
-\begin{figure}
+\vspace{16pt}
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.3]{frf_overdamped.jpg}
+	\includegraphics[scale=0.4]{frf_overdamped}
 \end{figure}
 
 \subsection{Temporal evolution of complete response of the system}
@@ -310,19 +367,22 @@ while in the second
 
  In each case, the steady-state motion has been computed by applying the well-known theoretical result stating the output of a linear time-invariant system is equal to the system input moduated in amplitude and phase by the FRF computed for the particular frequency $ \omega $ of the input:
 
-\[
+\begin{equation}
+\label{eqn:lti_output}
 	x_{forced}(t) = |H(j \omega)| \, F_0 \, %
 		cos\Bigl(\omega t + \phi + \angle\bigl(H(j \omega)\bigr)\Bigr)
-\]
+\end{equation}
+
+\clearpage
 
 In our case, since the independent variable is an angle in radians, we need to divide this quantity by the radius $ R_2 $ that allows us to pass from the vertical dispacement $ y_2 $ of body $ M_2 $ to the disks rotation $ \theta $, so the final formula becomes
 
 \[ \begin{split}
-	\theta_{total}(t) & = \theta_{free} + \theta_{forced} = \\
+	\theta(t) & = \theta_{free} + \theta_{forced} = \\
 										& = e^{-\alpha \, t} \, %
 											(X_1 \, e^{j \omega_d \, t} + %
 											X_2 \, e^{- j \omega_d \, t}) + %
-											|H(j \omega)| \, \frac{F_0}{R2} \, %
+											|H(j \omega)| \, \frac{A}{R2} \, %
 											cos\Bigl(\omega t + \phi + %
 											\angle\bigl(H(j \omega)\bigr)\Bigr)
 \end{split} \]
@@ -331,11 +391,13 @@ We took the liberty of taking into account an additional case, where the externa
 
 \[ \omega = 7 \, \text{rad/s} \]
 
-The system's complete time responses for each of the three cases are shown in the following diagram.
+The system's complete time responses for each of the three cases are visualized in the following diagram.
+
+\vspace{16pt}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.3]{complete_time_responses.jpg}
+	\includegraphics[scale=0.4]{complete_time_responses}
 \end{figure}
 
 \subsection{Forced response of the system (steady-state)}
@@ -344,16 +406,18 @@ Finally, let's consider this time a complex force composed by three harmonic com
 
 \[ F(t) = \sum_{k=1}^3 B_k \, cos(2 \pi f_k t + \phi_k) \]
 
-with $ B_1 = 1.2 \, \text{N} $, $ B_2 = 0.5 \, \text{N} $, $ B_3 = 5 \, \text{N} $, $ f_1 = 0.1 \, \text{Hz} $, $ f_2 = 0.6 \, \text{Hz} $, $ f_3 = 3.3 \, \text{Hz} $, $ \phi_1 = \frac{\pi}{4} $, $ \phi_2 = \frac{\pi}{5} $ and $ \phi_3 = \frac{\pi}{6} $. The external force and the forced vibration of the system are analyzed both in time and in frequency domain.
+with $ B_1 = 1.2 \, \text{N} $, $ B_2 = 0.5 \, \text{N} $, $ B_3 = 5 \, \text{N} $, $ f_1 = 0.1 \, \text{Hz} $ ($ \omega_1 = 0.63 \, \text{rad/s} $), $ f_2 = 0.6 \, \text{Hz} $ ($ \omega_2 = 3.77 \, \text{rad/s} $), $ f_3 = 3.3 \, \text{Hz} $ ($ \omega_3 = 20.73 \, \text{rad/s} $), $ \phi_1 = \frac{\pi}{4} $, $ \phi_2 = \frac{\pi}{5} $ and $ \phi_3 = \frac{\pi}{6} $. The external force and the forced vibration of the system are analyzed both in time and in frequency domain. For analyzing the forced response, the superposition principle has been employed: using equation \eqref{eqn:lti_output}, we computed the system forced response for each of the individual harmonic components that constitute the oscillating input. We then summed together the three partial forced responses to get the total steady-state response of the system. To validate the resut, we compared the spectrums with the Fast Fourier Transforms of the two time-domain signals making use of the relative Matlab function. As we may see, the amplitude spectra computed by means of FFT, scaled by the FFT length, qualitatively coincide with the ones we constructed showing peaks in correspondence to the same frequencies.
+
+As the external force is concerned, we can easily identify the three sinusoidal components that build it up in time domain, while the spectrum simply displays the given data in terms of amplitude, frequency and phase shift. As for the system's forced vibration, we are again able to tell the three frequency components apart in the time response. Furthermore, we can observe how different the weights of these three components are in the forced response, with respect to the input force: the most emphasized are the low frequencies, while the highest one is attenuated a big deal. This is due to the fact the original amplitudes for each cosine function in the external force are multiplied by the modulus of the system's Frequency Response Function computed for the frequency of the same cosine function, whereas the particular shape of the waveform is determined by the sum between the original phase shifts for each component with the phase value of the FRF evaluated for the corresponding frequency.
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.3]{forced_response.jpg}
+	\includegraphics[scale=0.4]{complex_force}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.3]{complex_force.jpg}
+	\includegraphics[scale=0.4]{forced_response}
 \end{figure}
 
 
