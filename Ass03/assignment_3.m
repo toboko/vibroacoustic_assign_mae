@@ -6,8 +6,7 @@ clc
 clear
 close all
 
-%% 1a) Experimental FRF
-
+1a) Experimental FRF
 % Importing experimental data
 st = load("Data.mat");
 
@@ -36,6 +35,7 @@ H1 = H1(1:round(length(H1)/2));
 H2 = H2(1:round(length(H2)/2));
 H3 = H3(1:round(length(H3)/2));
 H4 = H4(1:round(length(H4)/2));
+H  = [H1; H2; H3; H4];
 
 T_s = t(5) - t(4);
 f_s = 1/T_s;
@@ -105,9 +105,7 @@ title('FRF between x_4 and F - phase');
 xlabel('frequency [Hz]'); ylabel('$ \angle\bigl(H_4(f)\bigr) $ \, [rad]','Interpreter','LaTeX');
 grid on
 
-
-%% 1b) Finding natural frequencies, damping ratios and modeshapes with simplified methods
-
+1b) Finding natural frequencies, damping ratios and modeshapes with simplified methods
 % Finding peaks and their indices
 [peaks_H1, indices_H1] = findpeaks(abs(H1));
 [peaks_H2, indices_H2] = findpeaks(abs(H2));
@@ -124,3 +122,56 @@ indices_H3(peaks_H3 < max(peaks_H3)*1e-1) = [];
 peaks_H3(peaks_H3 < max(peaks_H3)*1e-1) = [];
 indices_H4(peaks_H4 < max(peaks_H4)*1e-1) = [];
 peaks_H4(peaks_H4 < max(peaks_H4)*1e-1) = [];
+
+% Each row correspond to single mode
+peaks_H   = [peaks_H1; peaks_H2; peaks_H3; peaks_H4];
+indices_H = [indices_H1; indices_H2; indices_H3; indices_H4];
+
+% Natural frequencies
+f_nat = [f(indices_H1); f(indices_H2); f(indices_H3); f(indices_H4);];
+
+% Applying the Half Power Bandwidth method, we estimated the  factor having the 
+% two frequencies w1, w2 in which the FRF halves the power
+
+% The half power approach for estimating damping is based
+% on finding the bandwidth for each mode
+
+% Custom function to get row and col length
+rows = @(x) size(x,1); 
+cols = @(x) size(x,2);
+
+% Init csi matrix
+csi = zeros(rows(peaks_H), cols(peaks_H))
+
+for x = 1:rows(csi)
+    for y = 1:cols(csi)
+        thdrs_mag = peaks_H(x,y).*0.5.*sqrt(2);
+        i         = indices_H(x,y);
+        w0        = f(i);
+        w1        = peaks_H(x,y);
+        w2        = w1;
+        % Search w1
+        while (w1 > thdrs_mag)
+            %   Looking for index before w0
+            i = i - 1;
+            w1 = abs(H(x,i));
+        end
+        w1 = f(i);
+        
+        % Reset index 
+        i  = indices_H(x,y);
+        
+        % Search w2
+        while (w2 > thdrs_mag)
+            %   Looking for index after w0
+            i = i + 1;
+            w2 = abs(H(x,i));
+        end
+        w2 = f(i);
+        
+%       Calc csi
+        csi(x,y) = (pow2(w2) - pow2(w1))./4*pow2(w0);
+    end
+end
+
+
