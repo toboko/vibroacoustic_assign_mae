@@ -156,7 +156,7 @@ for x = 1:rows(csi)
             i = i - 1;
             w1 = abs(H(x,i));
         end
-        w1 = f(i);
+        w1 = f(i + 1);
         
         % Reset index 
         i  = indices_H(x,y);
@@ -167,7 +167,7 @@ for x = 1:rows(csi)
             i = i + 1;
             w2 = abs(H(x,i));
         end
-        w2 = f(i);
+        w2 = f(i - 1);
         
 %       Calc csi
         csi(x,y) = (pow2(w2) - pow2(w1))./4*pow2(w0);
