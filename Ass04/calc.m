@@ -96,7 +96,6 @@ K = zeros(i_free_fixed_max, i_free_fixed_max);
 
 K_nat = sqrt(p / E) * 2 * pi .* f_nat_free_fixed;
 
-
 for x = 1:i_free_fixed_max
     for y = 1:i_free_fixed_max
         kr = K_nat(x);
@@ -125,7 +124,7 @@ FRF_MSA = zeros(size(f));
 
 for x = 1:ll
     for s = 1:i_free_fixed_max
-        FRF_MSA(x) = FRF_MSA(x) + (cos(K_nat(s)*xL1)/((-(f(x)*2*pi)*M(s,s))+((1+1i*n)*K(s,s))));
+        FRF_MSA(x) = FRF_MSA(x) + (cos(K_nat(s)*xL1)/(((-(f(x)*2*pi)^2)*M(s,s))+((1+1i*n)*K(s,s))));
     end
 end
 
