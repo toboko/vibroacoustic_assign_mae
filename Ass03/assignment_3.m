@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc
-clear
+clear all
 close all
 
 %% 1) Experimental FRFs
@@ -52,28 +52,28 @@ figure('Name', 'Experimental FRFs'' modulus');
 subplot(2,2,1)
 plot(f,abs(H1));
 axis([0, f_max, 0, max(abs(H1))*1.1]);
-title('FRF between x_1 and F - modulus','FontSize',16);
+title('FRF between x_1 and F - modulus','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_1(f)|','FontSize',12);
 grid on
 
 subplot(2,2,2)
 plot(f,abs(H2));
 axis([0, f_max, 0, max(abs(H2))*1.1]);
-title('FRF between x_2 and F - modulus','FontSize',16);
+title('FRF between x_2 and F - modulus','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_2(f)|','FontSize',12);
 grid on
 
 subplot(2,2,3)
 plot(f,abs(H3));
 axis([0, f_max, 0, max(abs(H3))*1.1]);
-title('FRF between x_3 and F - modulus','FontSize',16);
+title('FRF between x_3 and F - modulus','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_3(f)|','FontSize',12);
 grid on
 
 subplot(2,2,4)
 plot(f,abs(H4));
 axis([0, f_max, 0, max(abs(H4))*1.1]);
-title('FRF between x_4 and F - modulus','FontSize',16);
+title('FRF between x_4 and F - modulus','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_4(f)|','FontSize',12);
 grid on
 
@@ -83,28 +83,28 @@ figure('Name', 'Experimental FRFs'' phase');
 subplot(2,2,1)
 plot(f,angle(H1));
 axis([0, f_max, -pi, pi]);
-title('FRF between x_1 and F - phase','FontSize',16);
+title('FRF between x_1 and F - phase','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_1(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
 subplot(2,2,2)
 plot(f,angle(H2));
 axis([0, f_max, -pi, pi]);
-title('FRF between x_2 and F - phase','FontSize',16);
+title('FRF between x_2 and F - phase','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_2(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
 subplot(2,2,3)
 plot(f,angle(H3));
 axis([0, f_max, -pi, pi]);
-title('FRF between x_3 and F - phase','FontSize',16);
+title('FRF between x_3 and F - phase','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_3(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
 subplot(2,2,4)
 plot(f,angle(H4));
 axis([0, f_max, -pi, pi]);
-title('FRF between x_4 and F - phase','FontSize',16);
+title('FRF between x_4 and F - phase','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_4(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
@@ -134,7 +134,7 @@ indices_H = [indices_H1; indices_H2; indices_H3; indices_H4];
 
 % Natural frequencies
 f_nat = [f(indices_H1); f(indices_H2); f(indices_H3); f(indices_H4);];
-omega_nat = 2*pi*f_nat;
+omega_nat = 2*pi.*f_nat;
 
 % Applying the Half Power Bandwidth method, we estimated the factor having the 
 % two frequencies f1, f2 in which the FRF halves the power
@@ -201,3 +201,91 @@ for k=1:n
 end
 
 phi_norm = phi./phi(1,:);
+
+%% Opzionale
+
+% find our frequency ranges (local minima)
+rf = zeros(rows(indices_H), cols(indices_H)+1);
+i_max = find(f == f_max);
+wp_dx = 1;
+
+    for yy = 1:cols(rf) % over the m(+1) peaks
+        wp_sx = wp_dx; % (limite sinistro) is vecchio limite destro
+        
+        if yy>cols(indices_H) %(limite destro)
+            wp_dx = i_max; %length(H1);
+        else
+            wp_dx = indices_H(1,yy); % w del picco successivo (limite destro)
+        end
+        [~, min_index] = min(H(:,(wp_sx:wp_dx)),[],2);
+        rf(:,yy) = min_index + wp_sx-1;
+    end
+
+clear wp_sx wp_dx min_index
+
+f1 = figure('Name','MAGNITUDE - Just dont explode plis');
+f2 = figure('Name','PHASE - Just dont explode plis');
+    
+R = rows(csi);
+C = cols(csi);
+
+for mm = 1:R %over the n measurement
+    for pp = 1:C % over the m peaks
+        
+        i_peak = indices_H(mm,pp); 
+        w_peak = omega_nat(mm,pp); % w del picco
+        csi0i = csi(mm,pp);
+        r0i=2*w_peak*csi0i;
+        
+        % Function reduced to the range of interest
+        iini= rf(mm,pp); ifin = rf(mm,pp+1);
+        rfHjki = f(iini:ifin);
+        Hjkiexp = H(mm, iini:ifin); 
+        
+        % Constant parameter guessing (initial guess of Aj)
+        Aj0i=-imag(H(mm,i_peak))*w_peak*r0i; % all the other constants are set equal to 0
+
+        % Filling the vector xpar
+        xpar0 = [csi0i ; w_peak; Aj0i; zeros(5,1)]; % all the unknowns (2 mod parameters + 6 constant (all the other constants are set equal to 0))
+        
+        % Identification: single channel
+        option=optimset('fminsearch');
+        options=optimset(option, 'TolFun', 1e-8, 'TolX', 1e-8);
+        xpar=fminsearch(@(xpar) err_i(xpar , rfHjki , Hjkiexp), xpar0, options);
+        %xpar=fminsearch(@(xpar) errKjki_cw(xpar , rfHjki , Hjkiexp(:,jj)) , xpar0, options);
+
+        % Plot results of identification
+        vpar=[1; 2*xpar(1)*xpar(2); xpar(2)^2; xpar(3:8)];
+        %    [m;   c = 2 m w0 csi; k = w0^2 m; A;B;C;D;E;F]
+
+        % Reconstruction
+        Hjkiid=funHjki(vpar, rfHjki);
+        
+        %Plot - plis, do not explode
+        ngraph = (mm-1)*C + pp;
+        figure(f1)
+        subplot(R,C,ngraph);
+        plot(rfHjki, abs(Hjkiexp), 'b', rfHjki, abs(Hjkiid), 'r-', 'linewidth',1.2)
+        xlabel('Frequency [Hz]')
+        ylabel(['|H' num2str(mm) '| [m/N]'])
+        
+        figure(f2)
+        subplot(R,C,ngraph);
+        %plot(rfHjki, angle(Hjkiexp)*180/pi, 'b', rfHjki, angle(Hjkiid)*180/pi, 'r-', 'linewidth',1.2)
+        plot(rfHjki, unwrap(angle(Hjkiexp)*180/pi), 'b', rfHjki, unwrap(angle(Hjkiid)*180/pi), 'r-', 'linewidth',1.2)
+        yticks([-180 -90 0 90 180]); ylim([-200,200]);
+        ylabel(['\angleH' num2str(mm) ' [rad]'])
+        xlabel('Frequency [Hz]')
+        
+       
+    end
+end
+
+figure(f1)
+title('Magnitude')
+legend('Experimental','Identified')
+figure(f2)
+title('Phase')
+legend('Experimental','Identified')
+
+
