@@ -6,6 +6,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{color}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{bm}
@@ -14,10 +15,14 @@
 \usepackage{geometry}
 \usepackage{wrapfig}
 \usepackage{subfigure}
+\usepackage{hyperref}
 
 % Margin dimensions settings
 \geometry{a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm,%
 	heightrounded,bindingoffset=5mm}
+
+% x bar for UTF-8 encoding
+\DeclareUnicodeCharacter{304}{$ \bar{x} $}
 
 % Enumeration settings
 \renewcommand\thesubsection{\thesection.\alph{subsection}}
@@ -61,7 +66,8 @@
 \clearpage
 
 
-\section{Natural frequencies and mode shapes in free-fixed configuration}
+\section{Natural frequencies and mode shapes \\ in free-fixed configuration}
+\label{sec:nat_freqs_and_mode_shapes_free_fixed}
 
 Starting from the one-dimensional wave equation and applying it for the axial displacement $ s(x,t) $ of point at position $ x $ at time $ t $:
 
@@ -74,7 +80,7 @@ We already know that a solution to the equation is the standing wave expression,
 
 \[
 	s(x,t) = \Phi(x) \, G(t) = %
-		\bigl(A \, sin(kx) + B \, cos(kx)\bigl) \, e^{j \omega \, t}
+		\bigl(A \, \sin(kx) + B \, \cos(kx)\bigl) \, e^{j \omega \, t}
 \]
 
 \vspace{10pt}
@@ -85,7 +91,7 @@ The bar is in free-fixed condition, so the boundary conditions are
 	N(0,t) = E \, S \, \frac{\partial s(x,t)}{\partial x} \Big|_{x=0} = 0 %
 		~ \Rightarrow ~ E \, S \, A \, k \, e^{j \omega \, t} = 0 %
 		~ \Rightarrow ~ A = 0 ~ \text{($ k = 0 $ is a trivial solution)} \\
-	s(L,t) = 0 ~ \Rightarrow ~ B \, cos(kL) = 0 ~ \Rightarrow ~ %
+	s(L,t) = 0 ~ \Rightarrow ~ B \, \cos(kL) = 0 ~ \Rightarrow ~ %
 		k^{\textup{fr-fx}^{(i)}} = \frac{2i - 1}{2L} \pi %
 		~ \text{,} ~ i = 1,2,...,\infty
 \end{cases} \]
@@ -118,22 +124,22 @@ So $ i = 1,2,...,8 $ and the resulting natural frequencies are
 													\end{bmatrix}
 \]
 
-The mode shapes $ \Phi^{\textup{fr-fx}^{(i)}} $ are then, considering the constant coefficient $ B = 1 $,
+The mode shapes $ \Phi^{\textup{fr-fx}^{(i)}}(x) $ are then, considering the constant coefficient $ B = 1 $,
 
 \[
-	\Phi^{\textup{fr-fx}^{(i)}} = cos(k^{\textup{fr-fx}^{(i)}} x) = %
-		cos\biggl(\frac{2i - 1}{2L} \pi \, x\biggr) ~ \text{,} ~ i = 1,2,..,8
+	\Phi^{\textup{fr-fx}^{(i)}}(x) = \cos(k^{\textup{fr-fx}^{(i)}} x) =
+		\cos\biggl(\frac{2i - 1}{2L} \pi \, x\biggr) ~ \text{,} ~ i = 1,2,..,8
 \]
 
-We hereby show them plotting the oscillation amplitude of each point of the bar versus the points position.
+We hereby show them plotting the longitudinal oscillation amplitude of each point of the bar versus the points position. As expected, the oscillation of the free end always has maximum amplitude.
 
 \begin{figure}[h]
-	\centering
+	\hspace{-70pt}
 	\includegraphics[scale=0.4]{mode_shapes_free_fixed}
 \end{figure}
 
 
-\section{Natural frequencies and mode shapes in free-free configuration}
+\section{Natural frequencies and mode shapes \\ in free-free configuration}
 
 Differently, in a free-free configuration of the bar the boundary condition on the normal force $ N $ is applied to the right end of the bar too:
 
@@ -143,7 +149,7 @@ Differently, in a free-free configuration of the bar the boundary condition on t
 				~ \Rightarrow ~ E \, S \, A \, k \, e^{j \omega \, t} = 0 %
 				~ \Rightarrow ~ A = 0 ~ \text{($ k = 0 $ is a trivial solution)} \\
 			N(L,t) = E \, S \, \frac{\partial s(x,t)}{\partial x} \Big|_{x=L} = 0 %
-				~ \Rightarrow ~ - E \, S \, B \, k \, sin(kL) = 0 ~ \Rightarrow ~ sin(kL) = 0
+				~ \Rightarrow ~ - E \, S \, B \, k \, \sin(kL) = 0 ~ \Rightarrow ~ \sin(kL) = 0
 	\end{cases}	\\
 	& \hspace{150pt}~ \Rightarrow ~ %
 		k^{\textup{fr-fx}^{(i)}} = \frac{i}{L} \pi ~ \text{,} ~ i = 0,1,...,\infty
@@ -177,7 +183,7 @@ So $ i = 0,1,...,7 $ and the corresponding natural frequencies are
 													\end{bmatrix}
 \]
 
-The number of resonances within $ f_\textup{max} $ is the same, but the most important consideration is about the fact the system has now a resonance at $ f = 0 $, that is, a non-oscillating mode. The second consideration is that, while in the free-fixed case the resonance frequencies are odd integer multiples of the fundamental, in the free-free case these are all the integer multiples of the fundamental, both even and odd, which is twice that of the first case. In other words, naming $ f_0 $ the fundamental frequency of the free-fixed configuration, in the first case the resonances are
+The number of resonances within $ f_\textup{max} $ is the same, but the most important consideration is about the fact the system has now a resonance at $ f = 0 $, which means a fixed amount of longitudinal displacement is added to the displacement of each point of the bar during the vibration. This value, constant in time, is called rigid motion. Ituitively, it makes perfect sense as the bar is in free-free configuration, and applying a constant force at one of the two ends, the whole bar will rigidly move in the direction of the force. The fixed-fixed configuration shows a zero-frequency component too, but it doesn't correspond to a rigid motion different from zero, but rather to absence of motion, therefore it's not includible among the system's resonances but it's rather a trivial solution of the equation of motion. The second consideration is that, while in the free-fixed case the resonance frequencies are odd integer multiples of the fundamental, in the free-free case these are all the integer multiples of the fundamental, both even and odd, which is twice that of the first case. In other words, naming $ f_0 = 636.47 \, \text{Hz} $ the fundamental frequency of the free-fixed configuration, in the first case the resonances are
 
 \[
 	\mathbf{f_n^{fr-fx}} =	\begin{bmatrix}
@@ -193,16 +199,209 @@ while in the second case
 													\end{bmatrix}
 \]
 
-Just like before, the resulting mode shapes $ \Phi^{\textup{fr-fr}^{(i)}} $ are computed and plotted considering $ B = 1 $.
+Just like before, the resulting mode shapes $ \Phi^{\textup{fr-fr}^{(i)}}(x) $ are computed and plotted considering $ B = 1 $.
 
 \[
-	\Phi^{\textup{fr-fr}^{(i)}} = cos(k^{\textup{fr-fr}^{(i)}} x) = %
-		cos\biggl(\frac{i}{L} \pi \, x\biggr) ~ \text{,} ~ i = 0,1,...,7
+	\Phi^{\textup{fr-fr}^{(i)}}(x) = \cos(k^{\textup{fr-fr}^{(i)}} x) = %
+		\cos\biggl(\frac{i}{L} \pi \, x\biggr) ~ \text{,} ~ i = 0,1,...,7
 \]
 
 \begin{figure}[h]
-	\centering
+	\hspace{-70pt}
 	\includegraphics[scale=0.4]{mode_shapes_free_free}
+\end{figure}
+
+
+\section{Frequency Response Functions \\ in free-fixed configuration}
+\label{sec:frfs}
+
+For computing the system's FRFs, we're considering a harmonic force $ F(t) = F_0 \, e^{j \omega \, t} $ acting at the bar free end, so the application point is at $ \bar{x} = 0 $, while the bar points for which the FRF is computed are at $ \bar{x} = \frac{L}{2} $ and $ \bar{x} = \frac{L}{5} $. We're asked to find the FRFs in three different cases.
+
+\subsection*{Case 1: undamped bar (standing wave solution)}
+
+Considering the bar as not affected by energy losses during its vibration, a solution of the wave equation is seeked, resulting in non-attenuating standing waves superposition. Like we did for the natural frequencies of the bar, we find the coefficients $ A $ and $ B $ appearing in the expression for $ \Phi(x) $ imposing the same boundary conditions as in the free-fixed condition, but accounting for the external harmonic excitation too:
+
+\[ \begin{cases}
+	N(0,t) = E \, S \, \frac{\partial s(x,t)}{\partial x} \Big|_{x=0} + %
+		F_0 \, e^{j \omega \, t} = 0 %
+		~ \Rightarrow ~ E \, S \, A \, k \, e^{j \omega \, t} + %
+		F_0 \, e^{j \omega \, t} = 0 %
+		~ \Rightarrow ~ A = -\frac{F_0}{E \, S \, k} \\
+	s(L,t) = 0 ~ \Rightarrow ~ -\frac{F_0}{E \, S \, k} \, \sin(kL) + B \, \cos(kL) = 0 %
+		~ \Rightarrow ~ B = \frac{F_0 \, \sin(kL)}{E \, S \, k \, \cos(kL)}
+\end{cases} \]
+
+\[
+	\Rightarrow s(x,t) = \bigl(A \, \sin(kx) + B \, \cos(kx)\bigl) \, e^{j \omega \, t} =
+		\frac{\sin\bigl(k(L - x)\bigr)}{E \, S \, k \, \cos(kL)} \,
+		F_0 \, e^{j \omega \, t}
+		~ \Rightarrow ~ \frac{\sin\bigl(k(L - x)\bigr)}{E \, S \, k \, \cos(kL)} \, F(t)
+\]
+
+from which the FRF can be retrieved, considering the frequency dependency in place of the time dependency:
+
+\[
+	H^{SWS}(\omega) = \frac{s(x, \omega)}{F(\omega)} = %
+		\frac{\sin\bigl(k(L - x)\bigr)}{E \, S \, k \, \cos(kL)}
+\]
+
+\vspace{20pt}
+
+The FRF connecting the specific point $ \bar{x} $ on the x-axis to the force applied at the free end is then:
+
+\begin{equation}
+\label{eqn:frf_sws}
+	H^{SWS}_{\bar{x}}(\omega) = H^{SWS}(\omega)\big|_{x = \bar{x}} = %
+		\frac{\sin\bigl(k(L - \bar{x})\bigr)}{E \, S \, k \, \cos(kL)}
+\end{equation}
+
+\vspace{20pt}
+
+We hereby show the amplitude and phase plots for both the points we want to compute the response of. Note that, for $ \bar{x} = \frac{L}{5} $, two resonances are missing, precisely those of mode 3 and 8, indicating that these modes are non-observable modes in point $ \bar{x} = \frac{L}{5} $. This comes in accordance with the mode shapes we found in section \ref{sec:nat_freqs_and_mode_shapes_free_fixed}: the point $ \bar{x} = \frac{L}{5} = 0.4 \, \text{m} $ is indeed a node for mode shapes 3 and 8, while $ \bar{x} = \frac{L}{2} $ is a node for no mode, due to the asymmetric boundary conditions we imposed, due to asymmetric bar configuration in turn.
+
+\clearpage
+
+\begin{figure}[h]
+	\vspace{50pt}
+	\centering
+	\def\svgwidth{\columnwidth}
+	\input{images/frfs_standing_wave_solution.pdf_tex}
+\end{figure}
+
+\subsection*{Case 2: damped bar (wave propagation solution)}
+
+In this second case, the bar is damped, so the energy loss factor $ \eta $ is introduced. This represents the viscoelasticity of the bar, which is now not purely elastic as in an undamped one, and is comprised in a new, complex, Young's modulus, which leads to a new wave equation:
+
+\[ \begin{split}
+	& E' = E \, (1 + j \eta) ~ \Rightarrow ~
+		E' \,	\frac{\partial^2 s(x,t)}{\partial x^2} =
+		\rho \, \frac{\partial^2 s(x,t)}{\partial t^2} \\
+	& ~ \Rightarrow ~ c' = \sqrt{\frac{E'}{\rho}} = \sqrt{\frac{E \,(1 + j \eta)}{\rho}}
+		= c \, \sqrt{1 + j \eta} \approx
+		c \, \sqrt{\frac{1 + \frac{\eta^2}{4}}{1 + \frac{\eta^4}{16} + \frac{\eta^2}{2}} +
+		j \frac{\eta}{1 + \frac{\eta^4}{16} + \frac{\eta^2}{2}}}
+		= \frac{c}{1 - j \frac{\eta}{2}}
+\end{split} \]
+
+where the approximation is valid for low loss factors, e.g. order of magnitude of $ 10^{-2} $, which is our case. So the wavenumber is now
+
+\[
+	k' = \frac{\omega}{c'} = \frac{\omega}{c} \, (1 - j \frac{\eta}{2})
+		= k \, (1 - j \frac{\eta}{2})
+\]
+
+Applying the new value for Young's modulus and the wavenumber to the same FRF of the previous case \eqref{eqn:frf_sws}, thus using the same boundary conditions as before, the new frequency response function is retrieved:
+
+\[
+	H^{WPS}_{\bar{x}}(\omega) = H^{WPS}(\omega)\big|_{x = \bar{x}} = %
+		\frac{\sin\bigl(k'(L - \bar{x})\bigr)}{E' \, S \, k' \, \cos(k'L)}
+\]
+
+\vspace{10pt}
+
+The corresponding magnitude and phase plots are depicted in the following figure. As we can see, the resonances are at the same frequencies as before, but the amplitude plot shows attenuated values due to the introduction of $ \eta $, and the phase plot shows not perfectly vertical jumps now.
+
+\begin{figure}[h]
+	\vspace{50pt}
+	\centering
+	\def\svgwidth{\columnwidth}
+	\input{images/frfs_wave_propagation_solution.pdf_tex}
+\end{figure}
+
+\subsection*{Case 3: damped bar (modal superposition approach)}
+
+Following a modal approach, we started from the theoretical result that allows us to find the bar point $ x_\textup{out} $'s steady-state oscillation amplitude as response to input external force $ F(\omega) $ applied in point $ x_\textup{in} $
+
+\[ \begin{split}
+	s(x_\textup{out}, \omega) & = %
+		\sum_{i=1}^N \Phi^{(i)}(x)\big|_{x_\textup{out}} \, q_{0_i} \\
+	& = \sum_{i=1}^N \frac{\Phi^{(i)}(x)\big|_{x_\textup{out}} \, %
+		\Phi^{(i)}(x)\big|_{x_\textup{in}} \, F_0} %
+		{-\omega^2 \, m^{(i)} + (1 + j \eta) \, k^{(i)}}
+\end{split} \]
+
+In our case:
+
+\[ \begin{split}
+	s(\bar{x},\omega) =
+		\sum_{i=1}^N \frac{\Phi^{\textup{fr-fx}^{(i)}}(x)\big|_{\bar{x}} \,
+		\Phi^{\textup{fr-fx}^{(i)}}(x)\big|_0 \, F_0}
+		{-\omega^2 \, m^{(i)} + (1 + j \eta) \, k^{(i)}}
+\end{split} \]
+
+Dividing both sides by $ F_0 $ the expression for the FRF is derived:
+
+\[ \begin{split}
+	H^\textup{MSA}_{\bar{x}} & =
+		\sum_{i=1}^N \frac{\Phi^{\textup{fr-fx}^{(i)}}(x)\big|_{\bar{x}} \,
+		\Phi^{\textup{fr-fx}^{(i)}}(x)\big|_0}
+		{-\omega^2 \, m^{(i)} + (1 + j \eta) \, k^{(i)}} =
+		\sum_{i=1}^N \frac{\cos(k^{\textup{fr-fx}^{(i)}} x)\big|_{\bar{x}} \,
+		\cos(k^{\textup{fr-fx}^{(i)}} x)\big|_0}
+		{-\omega^2 \, m^{(i)} + (1 + j \eta) \, k^{(i)}} = \\
+	& = \sum_{i=1}^N \frac{\cos(k^{\textup{fr-fx}^{(i)}} \bar{x})}
+		{-\omega^2 \, m^{(i)} + (1 + j \eta) \, k^{(i)}}
+\end{split} \]
+
+\clearpage
+
+The modal mass and stiffness $ m^{(i)} $ and $ k^{(i)} $ are the i-th element in the diagonal of the modal mass matrix and modal stiffness matrix respectively, and they have been retrieved as
+
+\[ \begin{split}
+	& m^{(i)} = \int_0^L \mu \, \cos^2(k^{\textup{fr-fx}^{(i)}} x) \, dx =
+		\mu \, \frac{L}{2} + \frac{\sin(2 L k^{\textup{fr-fx}^{(i)}})}
+		{4 \, k^{\textup{fr-fx}^{(i)}}} \\
+	& k^{(i)} = \int_0^L E \, S \, \Bigl(k^{\textup{fr-fx}^{(i)}}\Bigr)^2 \,
+		\sin^2(k^{\textup{fr-fx}^{(i)}} x) \, dx =
+		E \, S \, \frac{L}{2} \, \Bigl(k^{\textup{fr-fx}^{(i)}}\Bigr)^2 -
+		\frac{\sin(2 L k^{\textup{fr-fx}^{(i)}})}{4 \, k^{\textup{fr-fx}^{(i)}}}
+\end{split} \]
+
+\vspace{20pt}
+
+In the following plots we're showing the resulting FRFs and a comparison between those obtained through wave propagation solution and through modal superposition approach. The FRFs obtained using the two methods coincide very thoroughly in case of $ \bar{x} = \frac{L}{2} $, beginning to diverge only at the very right end due to quasi-static contributions of modes higher than the 8\textsuperscript{th} not taken into account for the modal approach, and generally thoroughly for $ \bar{x} = \frac{L}{5} $, for which the difference between the two approaches shows up earlier than for $ \bar{x} = \frac{L}{2} $. The reason for this must be the absence of two resonance peaks, that penalizes the modal approach more than in the other case. %Taking two more modes into consideration, thus "recovering" those two missing ones, would lead to a result as precise as the one for $ \bar{x} = \frac{L}{2} $.
+
+\vspace{150pt}
+
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{\columnwidth}
+	\input{images/frfs_modal_superposition_approach.pdf_tex}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+	\vspace{50pt}
+	\centering
+	\def\svgwidth{\columnwidth}
+	\input{images/frfs_wps_vs_msa.pdf_tex}
+\end{figure}
+
+
+\section{Driving-point impedance \\ in free-fixed configuration}
+
+Finally, the impedance computed at the force application point, i.e. $ \bar{x} = 0 $, is requested. Two case studies are considered.
+
+\subsection*{Case 1: damped bar (wave propagation solution)}
+
+
+
+\begin{figure}[h]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{impedance_wave_propagation_solution}
+\end{figure}
+
+\subsection*{Case 2: damped bar (modal superposition approach)}
+
+\begin{figure}[h]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{impedance_modal_superposition_approach}
+\end{figure}
+
+\begin{figure}[h]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{impedance_wps_vs_msa}
 \end{figure}
 
 
