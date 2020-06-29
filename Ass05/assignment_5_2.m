@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       ASSIGNMENT 03       %
+%       ASSIGNMENT 05       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 clc
@@ -9,6 +9,7 @@ close all
 % Importing experimental data
 load("Data.mat");
 load("Data2.mat");
+disp("Data loaded.");
 
 % xy_bt back plate
 % xy_bf top  plate
@@ -90,6 +91,7 @@ plot(freq, absFRF, freq(indices), absFRF(indices), 'r*', ...
 in1 = input('Load Minimization Data (1) or do a new minimization (2) ? \n');
 
 if (in1 ==2)
+    disp("Minimization started."); tic
     FRFreco = zeros(size(FRF));
     maxLen = length(indices);
     vpar = NaN(maxLen,125,9);
@@ -119,24 +121,33 @@ if (in1 ==2)
             xpar0 = [csi0i ; w_peak; Aj0i; zeros(5,1)]; % all the unknowns (2 mod parameters + 6 constant (all the other constants are set equal to 0))
             
             % Identification: single channel
-            option=optimset('fminsearch');
-            options=optimset(option, 'TolFun', 1e-8, 'TolX', 1e-8);
-            xpar=fminsearch(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, options);
-            %xpar=fminsearch(@(xpar) errKjki_cw(xpar , rfHjki , Hjkiexp(:,jj)) , xpar0, options);
             
+%             option=optimset('fminsearch');
+%             options=optimset(option, 'TolFun', 1e-8, 'TolX', 1e-8);
+%             xpar=fminsearch(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, options);
+             
+            options = optimoptions(@lsqnonlin,'TolFun', 1e-10, 'TolX', 1e-10, 'StepTolerance', 1e-20);
+            options.Algorithm = 'levenberg-marquardt';
+            options.Display = 'none';
+            xpar=lsqnonlin(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, [], [], options);
             % Plot results of identification
-            vpar(pp,mm,:)=[1; 2*xpar(1)*xpar(2); xpar(2)^2; xpar(3:8)];
+            vpar(pp,mm,:)= [1; 2*xpar(1)*xpar(2); xpar(2)^2; xpar(3:8)];
+            csi(pp,mm,:) = [xpar(1); xpar(2)];
             %    [m;   c = 2 m w0 csi; k = w0^2 m; A;B;C;D;E;F]
             
             
             % Reconstruction
             FRFreco(iini:ifin,mm) = funHjki(vpar(pp,mm,:), rangeFreq);
-            %FRFreco(:,mm) = FRFreco(:,mm) + funHjki(vpar(pp,mm,:), freq);
+            %FRFreco(iini:end,mm) = FRFreco(iini:end,mm) + funHjki(vpar(pp,mm,:), freq(iini:end));
         end
     end
-    save Data3 freq FRFreco vpar;
+    
+    disp("Minimization ended.");
+    save Data3 freq FRFreco vpar csi;
+    toc
     
 else
+    disp("Loading minimization d a t a . . .");
     load("Data3.mat");
 end
 
@@ -160,16 +171,31 @@ Xi_b = vpar_b(:,:,4) + 1i.*vpar_b(:,:,5);
 % Xi_t = rescale(abs(Xi_t), -1 , +1);
 % Xi_b = rescale(abs(Xi_b), -1 , +1);
 
-%% PARTE 3
-modo = input('Which mode do you want to visualize ? ');
-disp("Frequenza modo: " + num2str(f_nat(modo)) + "Hz");
+%% 3b comparison of experimental and identified FRFs (for a certain reference channel);
+ch = input('Which channel do you want to visualize ? \n');
+while(ch< 1 || ch > 125)
+   disp("Insert a valid channel index (<= 125 )\n");
+   ch = input('Which channel do you want to visualize ? \n'); 
+end
+
+figure('Name', 'Comparison of experimental and identified FRFs')
+
+plot(freq, abs(FRF(:,ch)), freq, abs(FRFreco(:,ch)));
+
+
+%% 3c visualization of the identified modes.
+
+modo = input('Which mode do you want to visualize ? \n');
+while(modo< 1 || modo > length(indices))
+   disp("Insert a valid mode index (<= " + num2str(length(indices)) + " ) ");
+   modo = input('Which mode do you want to visualize ? \n'); 
+end
+disp("Natural frequency: " + num2str(f_nat(modo)) + " Hz");
+%disp("Damping ratio: " + num2str(csiAv()) + "\n");
 
 figure
 %Top
 subplot(1,2,1)
-hold on
-plot(xy_bt(:,1),xy_bt(:,2), '.b') % body 
-plot(xy(1:58,1),xy(1:58,2), 'sr') % sensors 
 
 [X_t,Y_t] = meshgrid(min(xy(1:58,1)):0.1:max(xy(1:58,1)), ...
     min(xy(1:58,2)):0.1:max(xy(1:58,2)));
@@ -180,19 +206,20 @@ F_t = scatteredInterpolant(xy(1:58,1),xy(1:58,2), Xi_t(modo,:)', ...
 Z_t = F_t(X_t,Y_t);
 Z_t = rescale(abs(Z_t), -1 , +1);
 Z_t(~inmask) = NaN;
-s = surf(X_t,Y_t,Z_t);
-s.EdgeColor = 'none';
+
+%s = surf(X_t,Y_t,Z_t);
+s = pcolor(X_t,Y_t,Z_t);
+s.LineStyle = 'none';
+
+hold on
+plot(xy_bt(:,1),xy_bt(:,2), '.b') % body 
+plot(xy(1:58,1),xy(1:58,2), 'sr') % sensors 
+xlim([-10, +10]); ylim([0, 35]);
 
 hold off 
 
-
-
-
 %Bottom
 subplot(1,2,2)
-hold on
-plot(xy_bf(:,1),xy_bf(:,2), '.b') % body %
-plot(xy(59:end,1),xy(59:end,2), 'sr')  % sensors %
 
 [X_b,Y_b] = meshgrid(min(xy(59:end,1)):0.1:max(xy(59:end,1)), ...
     min(xy(59:end,2)):0.1:max(xy(59:end,2)));
@@ -201,14 +228,21 @@ inmask = inpolygon(X_b(:), Y_b(:), xy(b,1), xy(b,2));
 F_b = scatteredInterpolant(xy(59:end,1),xy(59:end,2), Xi_b(modo,:)', ...
     'natural', 'none');
 Z_b = F_b(X_b,Y_b);
-Z_b = rescale(abs(Z_b), -1 , +1);
+Z_b = rescale(abs(Z_b)  , -1 , +1);
 Z_b(~inmask) = NaN;
-s = surf(X_b,Y_b,Z_b);
-s.EdgeColor  = 'none';
+
+%s = surf(X_b,Y_b,Z_b);
+s = pcolor(X_b,Y_b,Z_b);
+s.LineStyle = 'none';
+
+hold on
+plot(xy_bf(:,1),xy_bf(:,2), '.b') % body %
+plot(xy(59:end,1),xy(59:end,2), 'sr')  % sensors %
+xlim([-10, +10]); ylim([0, 35]);
 
 cb=colorbar;
 cb.Position = cb.Position + [0.11, 0, 0, 0];
-%caxis([-1 +1]);
+caxis([-1 +1]);
 
 hold off
 

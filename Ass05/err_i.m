@@ -2,8 +2,12 @@ function errore = err_i(xpar , range_H , H_exp)
 %ERR_I Summary of this function goes here
 %   Detailed explanation goes here
 
-if (length(xpar)~= 8 )
+if (size(xpar,1)~= 8 )
     error('Not valid xpar');
+end
+
+if(size(range_H,1) ~= size(H_exp,1))
+    error('Not valid lengths');
 end
 
 csii= xpar(1);
@@ -33,11 +37,11 @@ else
 end
 
 
-H_anal = (Ai + 1i*Bi)./(-omega.^2 + 2i*omega.*(csii*w0i) + w0i^2) + ...
-    + (Ci+1i*Di) + (Ei+1i*Fi)./(omega.^2);
+H_anal = (Ai + 1i*Bi)./(-omega.^2 + 2*1i*omega.*(csii*w0i) + w0i^2) + ...
+    + (Ci+1i*Di)./ones(size(range_H)) + (Ei+1i*Fi)./(omega.^2+1e-4);
 
 % errore 
 c_e = H_anal - H_exp; %complex error
-errore = sum(real(c_e).^2) + sum(imag(c_e).^2) + err0;
+errore = sum(sum(real(c_e).^2) + sum(imag(c_e).^2)) + err0;
 end
 
