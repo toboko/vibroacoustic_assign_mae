@@ -1,6 +1,5 @@
 function errore = err_i(xpar , range_H , H_exp) 
-%ERR_I Summary of this function goes here
-%   Detailed explanation goes here
+%ERR ASS 03
 
 if (length(xpar)~= 8 )
     error('Not valid xpar');
@@ -34,10 +33,13 @@ end
 
 
 H_anal = (Ai + 1i*Bi)./(-omega.^2 + 2i*omega.*(csii*w0i) + w0i^2) + ...
-    + (Ci+1i*Di) + (Ei+1i*Fi)./(omega.^2);
+    + (Ci+1i*Di) + (Ei+1i*Fi)./(omega.^2); %.*(ones(size(omega)))
 
 % errore 
 c_e = H_anal - H_exp; %complex error
 errore = sum(real(c_e).^2) + sum(imag(c_e).^2) + err0;
+% real_e = sum(real(c_e));
+% imag_e = sum(imag(c_e));
+% errore = [real_e; imag_e];
 end
 

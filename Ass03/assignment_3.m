@@ -229,6 +229,8 @@ f2 = figure('Name','PHASE - Just dont explode plis');
 R = rows(csi);
 C = cols(csi);
 
+vpar = zeros(R,C,9);
+
 for mm = 1:R %over the n measurement
     for pp = 1:C % over the m peaks
         
@@ -245,21 +247,20 @@ for mm = 1:R %over the n measurement
         % Constant parameter guessing (initial guess of Aj)
         Aj0i=-imag(H(mm,i_peak))*w_peak*r0i; % all the other constants are set equal to 0
 
-        % Filling the vector xpar
+        % Filling the vector xpar (initial guess)
         xpar0 = [csi0i ; w_peak; Aj0i; zeros(5,1)]; % all the unknowns (2 mod parameters + 6 constant (all the other constants are set equal to 0))
         
         % Identification: single channel
         option=optimset('fminsearch');
         options=optimset(option, 'TolFun', 1e-8, 'TolX', 1e-8);
         xpar=fminsearch(@(xpar) err_i(xpar , rfHjki , Hjkiexp), xpar0, options);
-        %xpar=fminsearch(@(xpar) errKjki_cw(xpar , rfHjki , Hjkiexp(:,jj)) , xpar0, options);
 
         % Plot results of identification
-        vpar=[1; 2*xpar(1)*xpar(2); xpar(2)^2; xpar(3:8)];
+        vpar(mm,pp,:)=[1; 2*xpar(1)*xpar(2); xpar(2)^2; xpar(3:8)];
         %    [m;   c = 2 m w0 csi; k = w0^2 m; A;B;C;D;E;F]
 
         % Reconstruction
-        Hjkiid=funHjki(vpar, rfHjki);
+        Hjkiid=funHjki(vpar(mm,pp,:), rfHjki);
         
         %Plot - plis, do not explode
         ngraph = (mm-1)*C + pp;
