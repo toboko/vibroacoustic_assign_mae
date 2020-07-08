@@ -114,9 +114,10 @@ for mm = 1:C       % over the n measurements
             iini= rfi(mm,pp); ifin = rfi(mm,pp+1);
             rangeFreq = freq(iini:ifin);
             FRFexp = FRF_LP(iini:ifin, mm);
+            omegaRange = 2*pi.*rangeFreq;
             
             % New peak
-            safe = 100;
+            safe = 25;
 %             i1 = i_peak - safe;
 %             i2 = min(i_peak + safe, 5002);
             i1 = iini;
@@ -138,13 +139,13 @@ for mm = 1:C       % over the n measurements
             % Phase derivative method (ma con fase smussata)
             safe = 3;
             derPh = (angleFRF(i_peak+safe,mm) - angleFRF(i_peak-safe,mm)) ...
-                ./(2*pi*(freq(i_peak+safe)-freq(i_peak-safe)));
-            if ((-derPh) < 1e03 )
-                derPh = -1e02;
-            end
+                             ./(2*pi*(freq(i_peak+safe)-freq(i_peak-safe)));
+            %derPh = (angle(FRF(i_peak+safe,mm))- angle(FRF(i_peak-safe,mm)))./(2*pi*(freq(i_peak+safe)-freq(i_peak-safe)));
+             if (derPh > -3e-02 )
+                 derPh = -1e03;
+             end
             derPhmatrix(pp,mm) = derPh;
 
-            %derPh = (angle(FRF(i_peak+1))- angle(FRF(i_p eak-1)))./(2*pi*(freq(i_peak+1)'-freq(i_peak-1)'));
             csi0i = -1./(w_peak.*derPh);
             r0i = 2.*w_peak.*csi0i;
             r0matrix(pp,mm) = r0i;
@@ -162,10 +163,18 @@ for mm = 1:C       % over the n measurements
 %             options=optimset(option, 'TolFun', 1e-8, 'TolX', 1e-8);
 %             xpar=fminsearch(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, options);
              
-            options = optimoptions(@lsqnonlin,'TolFun', 1e-10, 'TolX', 1e-10, 'StepTolerance', 1e-20);
-            options.Algorithm = 'levenberg-marquardt';
+            options = optimoptions(@lsqnonlin,'TolFun', 1e-10, 'TolX', 1e-10, 'StepTolerance', 1e-20, ...
+                'MaxIter', 1e06, 'MaxFunEval', 1e07);
+            %options.Algorithm = 'levenberg-marquardt';
             options.Display = 'none';
-            xpar=lsqnonlin(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, [], [], options);
+            safe = 25;
+%             lb = [1e-05; omegaRange(1); -Inf.*ones(6,1)];
+%             ub = [0.2; omegaRange(end); Inf.*ones(6,1) ];
+            lb = [0; w_peak-safe ; -5.*ones(6,1)];
+            ub = [0.1; w_peak+safe ; 5.*ones(6,1) ];
+%             lb = [];
+%             ub = [];
+            xpar=lsqnonlin(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, lb, ub, options);
             % Plot results of identification
             % RICORDA: vpar(a,b,c) = a:picc b: mis c:parametri
             csi(pp,mm,1) = xpar(1); % csi
@@ -336,6 +345,7 @@ plot(xy_bf(:,1),xy_bf(:,2), '.b') % body %
 plot(xy(59:end,1),xy(59:end,2), 'sr')  % sensors %
 xlim([-10, +10]); ylim([0, 35]);
 %}
+colormap jet;
 cb=colorbar;
 cb.Position = cb.Position + [0.11, 0, 0, 0];
 caxis([-1 +1]);

@@ -36,11 +36,6 @@ end
 
 % Controllo su w0i e csii negative
 
-% if (w0i <0 || csii <0 ) 
-%     err0=1e10;
-% else
-%      err0 = 0;
-% end
 
 %m_i = 1;
 %m_i = Aj;
