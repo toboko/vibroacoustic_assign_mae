@@ -195,5 +195,111 @@ Normalizing the elements of each measure taking the first one as reference the r
 
 These values are in agreement with the magnitude and phase plots of \ref{sec:experimental_frfs}: the modulus of $ \phi^{(i)}_k $ is approximatedly the relative value in the amplitude plots, while its sign follows the sign of the phase in the phase plots. The biggest divergence between the absolute value of the elements in the modal matrix and the plotted values is about measurement 3, 3\textsuperscript{rd} mode, which should have a relative magnitude of $ \frac{1}{3} $ with respect to the 1\textsuperscript{st} measurement, but the corresponding element in $ \bm{\phi} $ indicates $ \frac{1}{2} $. This is certainly due to the approximated values of the modal matrix, obtained by means of a simplified method. In the next section, we go on with the analysis using a more accurate procedure, which is a modal parameter identification model.
 
+% Da qui parte ema
+\section{Modal parameter identification}
+Modal identification uses the modal approach as analytical support, meaning that
+it reconstructs the analytical transfer function $H_k( \omega) $ of the system considering it as if it were made up of many one d.o.f. systems, since the various d.o.f. are
+defined by the modal variables. $H_k ( \omega) $ represents the harmonic transfer function for an input at the generic point k (in our system di output position is fixed) of the N d.o.f. system considered. So this transfer function will have modal parameters as
+unknown quantities:
+
+\[
+	H_k ( \omega ) = H_k (\omega, \omega_{d_k}^{(i)} , m_k ^{(i)}, k_k ^{(i)},  \xi_k ^{(i)}, 	    	\mathbf{ \phi }^{(i)} )	
+\]
+
+being:
+
+\begin{itemize}
+\item $ \omega_{d_k} $ the natural frequencies;
+\item $ m_k ^{(i)} $ the generalised masses;
+\item $ k_k ^{(i)} $ the generalised stifness;
+\item $ \xi_k ^{(i)} $ the modal damping;
+\item $	\mathbf{ \phi }^{(i)} $ the modes of vibration.
+\end{itemize}
+
+With this approach the dynamic response of the structure subjected to the known excitation is measured at several k points; this dynamic response, expressed in terms of experimental
+transfer functions $H_k ^{EXP} ( \omega) $ , is then compared to the analytical response $H_k ^{NUM} ( \omega) $ defined beforehand by minimising the difference between the analytical values and the experimental ones. It is thus possible to determine the set of modal parameters needed to characterise the static and dynamic behaviour of the system being analysed.
+
+From the modal approach we know that, as far as a sufficient number of modes N are considered, the following expression is always valid:
+
+\[
+H_{jk} (\omega) = \sum_{i=1}^{N} \dfrac{\phi_{j}^{(i)} \phi_{k}^{(i)}}
+{-\omega^2 m_i +j \omega c_i + k_i}
+\]
+considering a system forced at location j, whose response is measured at location k.
+
+
+For well distinguished peaks and lightly damped structures, the analytical Frequency Response Function $H_k ^ {NUM} ( \omega) $ of the system can be approximated around a certain $\omega_i$ as:
+
+\[	
+H_{jk}^{NUM} (\omega) = \dfrac{A_{j}^{(i)} + jB_{j}^{(i)}}
+{-\omega^2 m_i +j \omega c_i + k_i}
++ (C_{j}^{(i)} + jD_{j}^{(i)})
++ \dfrac{E_{j}^{(i)} + jF_{j}^{(i)}}{\omega^2}
+\]
+
+In this form:
+
+\begin{itemize}
+\item the first term represent the contribution of the \textbf{resonating mode} in our frequency range of interest;
+\item the second term represent the contribution of the modes at \textbf{higher} frequency than $\omega_i$; this contribution is approximately constant because our frequency range of interest falls in the \textbf{quasi-static zone} of this modes;
+\item the third term represent the contribution of the modes at \textbf{lower} frequency than $\omega_i$; this contribution has approximately a $\dfrac{1}{\omega^2}$ because our frequency range of interest falls in the \textbf{seismographic region} of this modes.
+\end{itemize}
+
+INSERIRE FIGURA DELLA SLIDE 21 - LAB 2 (PARTE 2)
+
+The frequency ranges of interest are partitions of the frequency axis. Given the N well distinguished peaks we will have N ranges of interest. The bounds of this ranges are the local minima between one peak and the following one. 
+
+INSERIRE IMMAGINE ESEMPLIFICATIVA matlab DEI MINIMI E MASSIMI INDIVIDUATI
+ 
+\subsection{Vibration modes identification procedure}
+For a given set of experimental FRFs $H_k ^ {EXP} ( \omega) $ , obtained for a fixed excitation location j (that for this reason will be omitted) and different measurement locations k (4 points), a least squares minimization procedure can be implemented for the estimation of the modal parameters.
+
+The error function to be minimized is:
+
+\[
+\varepsilon = \sum_{s=s_inf}^{s_sup} 
+\Re{ \lbrace
+H_k ^ {EXP} ( \omega_s) - H_k ^ {NUM} ( \omega_s)  
+\rbrace }^2 +
+\Im{ \lbrace
+H_k ^ {EXP} ( \omega_s) - H_k ^ {NUM} ( \omega_s)  
+\rbrace}^2
+\]
+
+Since the error function depends non-linearly from the unknown parameters, an iterative
+minimization procedure is used. This is implemented in \textsc{Matlab} throught the function 
+\texttt{fminsearch}. According to the documentation, \texttt{fminsearch} is a nonlinear programming solver. Itearches for the minimum of a problem specified by
+$\min\limits_{x} f(x)$. 
+Its syntax is: \texttt{x = fminsearch(fun,x0,options)}.
+
+\texttt{fun} is the function to minimize, specified as a function handle or function name. \texttt{fun} is a function that accepts a vector or array x and returns a real scalar f (the objective function evaluated at x).
+
+An initial guess vector \texttt{x0} (in our code is \texttt{xpar0}) is required, consisting of a preliminary estimate of:
+\begin{enumerate}
+\item $\omega_i$ which is found from the maximum peak in the considered frequency range. We already discussed the procedure in the \ref{sec:simplified_methods} section. It has been evaluated from each FRF and then averaged.
+\item $\xi_i$ which is found through a simplified method (in our case the half power bandwidth). We already discussed the procedure in the \ref{sec:simplified_methods} section. It has been evaluated from each FRF and then averaged.
+\item  $A_{j}^{(i)}$ which is found considering each FRF at resonance and assuming real
+valued mode shapes (valid in resonance condition):
+
+\[
+\phi^{(i)}_k = %
+		- \Im\{H^{\textup{exp}}_k(\omega_{\textup{d}_k}^{(i)})\} %
+		\, \omega_{\textup{d}_k}^{(i)} \, c^{(i)}_k
+		= A_{j}^{(i)}
+\]
+
+We already discussed the procedure in the \ref{sec:simplified_methods} section.
+It follows that $B_{j}^{(i)} = 0 $ .
+\item $C_{j}^{(i)} , D_{j}^{(i)}, E_{j}^{(i)}, 	F_{j}^{(i)}$ are set to zero under the assumption of sufficiently distinguished peaks.
+\end{enumerate}
+
+The non-linear minimization procedure elaborates separately the FRFs, leading to an estimate of the modal parameters $(\omega_i, \xi_i, A_{j}^{(i)})$ for every frequency range (i.e. for every peak) and for every measurement. Then the parameters are averaged. 
+A further improvement of the algorithm could be to perform the minimization simultaneously on the whole set of FRFs, leading to a more precise estimate of the modal parameters $(\omega_i, \xi_i, A_{j}^{(i)})$ for every peak. In this case the information giver by the correlation of the FRFs is exploited.
+The quality of the estimates can be visually assessed comparing in a plot the
+identified FRFs $H_k ^ {NUM}$ with the experimental ones $H_k ^ {EXP}$.
+
+INSERIRE PLOT matlab DELLE FRF RICOSTRUITE
+
+
 
 \end{document}
