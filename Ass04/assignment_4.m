@@ -465,7 +465,7 @@ plot(omega/2/pi, angle(Z8_msa)*180/pi,'r'); grid off; xlabel('Frequency [Hz]'); 
 
 %% Comparison between 8 modes and 5 modes
 
-figure('Name', 'Comparison between SWS, MSA 8 modes and MSA 5 modes ');
+figure('Name', 'Comparison between WPS, MSA 8 modes and MSA 5 modes ');
 subplot(2,1,1); 
 semilogy(omega/2/pi, abs(Z_wps),'r', omega/2/pi, abs(Z5_msa),'b-', omega/2/pi, abs(Z8_msa),'g-'); 
 grid off; xlabel('Frequency [Hz]'); ylabel('|Z| [Nm/s]'); ylim([0,10e7]); xlim([0,10e3]);
@@ -474,6 +474,6 @@ subplot(2,1,2);
 plot(omega/2/pi, angle(Z_wps)*180/pi,'r', omega/2/pi, angle(Z5_msa)*180/pi,'b-', omega/2/pi, angle(Z8_msa)*180/pi,'g-'); 
 grid off; xlabel('Frequency [Hz]'); ylabel('\angle Z [deg]'); yticks([-180 -90 0 90 180]); ylim([-200,200])
 
-legend('SWS', 'MSA 5 modes', 'MSA 8 modes');
+legend('WPS', 'MSA 5 modes', 'MSA 8 modes');
 
 
