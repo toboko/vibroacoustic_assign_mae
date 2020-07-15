@@ -231,6 +231,7 @@ C = cols(csi);
 
 vpar = zeros(R,C,9);
 
+disp('Minimization started...')
 for mm = 1:R %over the n measurement
     for pp = 1:C % over the m peaks
         
@@ -253,6 +254,7 @@ for mm = 1:R %over the n measurement
         % Identification: single channel
         option=optimset('fminsearch');
         options=optimset(option, 'TolFun', 1e-8, 'TolX', 1e-8);
+        options.Display = 'none';
         xpar=fminsearch(@(xpar) err_i(xpar , rfHjki , Hjkiexp), xpar0, options);
 
         % Plot results of identification
@@ -280,7 +282,9 @@ for mm = 1:R %over the n measurement
         
        
     end
+    disp("Measurement " + num2str(mm) + " done." )
 end
+
 
 figure(f1)
 title('Magnitude')
@@ -289,4 +293,53 @@ figure(f2)
 title('Phase')
 legend('Experimental','Identified')
 
+%% Altri plot
+
+% Plots
+
+figure('Name', 'Experimental FRFs'' modulus - Max & Min');
+
+subplot(2,2,1)
+plot(f,abs(H1));
+hold on
+plot(f(rf(1,:)),abs(H1(rf(1,:))), 'g*');
+hold on
+plot(f(indices_H(1,:)),abs(H1(indices_H(1,:))), 'r*');
+axis([0, f_max, 0, max(abs(H1))*1.1]);
+title('FRF between x_1 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_1(f)|','FontSize',12);
+grid on
+
+subplot(2,2,2)
+plot(f,abs(H2));
+hold on
+plot(f(rf(2,:)),abs(H2(rf(2,:))), 'g*');
+hold on
+plot(f(indices_H(2,:)),abs(H2(indices_H(2,:))), 'r*');
+axis([0, f_max, 0, max(abs(H2))*1.1]);
+title('FRF between x_2 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_2(f)|','FontSize',12);
+grid on
+
+subplot(2,2,3)
+plot(f,abs(H3));
+hold on
+plot(f(rf(3,:)),abs(H3(rf(3,:))), 'g*');
+hold on
+plot(f(indices_H(3,:)),abs(H3(indices_H(3,:))), 'r*');
+axis([0, f_max, 0, max(abs(H3))*1.1]);
+title('FRF between x_3 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_3(f)|','FontSize',12);
+grid on
+
+subplot(2,2,4)
+plot(f,abs(H4));
+hold on
+plot(f(rf(4,:)),abs(H4(rf(4,:))), 'g*');
+hold on
+plot(f(indices_H(4,:)),abs(H4(indices_H(4,:))), 'r*');
+axis([0, f_max, 0, max(abs(H4))*1.1]);
+title('FRF between x_4 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_4(f)|','FontSize',12);
+grid on
 
