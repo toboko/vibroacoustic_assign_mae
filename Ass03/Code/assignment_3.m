@@ -274,8 +274,8 @@ for mm = 1:R %over the n measurement
         
         figure(f2)
         subplot(R,C,ngraph);
-        %plot(rfHjki, angle(Hjkiexp)*180/pi, 'b', rfHjki, angle(Hjkiid)*180/pi, 'r-', 'linewidth',1.2)
-        plot(rfHjki, unwrap(angle(Hjkiexp)*180/pi), 'b', rfHjki, unwrap(angle(Hjkiid)*180/pi), 'r-', 'linewidth',1.2)
+        plot(rfHjki, angle(Hjkiexp)*180/pi, 'b', rfHjki, angle(Hjkiid)*180/pi, 'r-', 'linewidth',1.2)
+        %plot(rfHjki, unwrap(angle(Hjkiexp)*180/pi), 'b', rfHjki, unwrap(angle(Hjkiid)*180/pi), 'r-', 'linewidth',1.2)
         yticks([-180 -90 0 90 180]); ylim([-200,200]);
         ylabel(['\angleH' num2str(mm) ' [rad]'])
         xlabel('Frequency [Hz]')
