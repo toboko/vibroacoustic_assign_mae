@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Equation of motion}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Equation derivation}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Eigenfrequencies and eigenvectors}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Proportional damping matrix}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Free motion of the system}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Response to given initial conditions}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Exciting one mode only}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Forced motion of the system}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Frequency Response Matrix}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Co-located FRF of point A}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Co-located FRF of disc 2}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Complete time response of the system}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.5}{Forced response of the system \(steady-state\)}{section.3}% 13
+\BOOKMARK [1][-]{section.4}{Modal approach}{}% 14
+\BOOKMARK [2][-]{subsection.4.1}{Equation of motion and Frequency Response Matrix}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.2}{Co-located FRF of point A}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.3}{Co-located FRF of disc 2}{section.4}% 17
