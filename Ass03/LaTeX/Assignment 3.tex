@@ -235,12 +235,12 @@ With this approach, the dynamic response of the structure subjected to the known
 
 From the modal approach theory, we know that, as far as a sufficient number of modes $ N $ are considered, the following gives the expression for $ H^\textup{exp}_k(\omega) $:
 
-\[
+\begin{equation}
+\label{eqn:Hexp_modal} 
 	H^\textup{exp}_k(\omega) = \sum_{i=1}^{N} \frac{\phi_k^{(i)}}
 		{-\omega^2 m^{(i)}_k + j \omega c^{(i)}_k + k^{(i)}_k}
 		~ \text{,} ~ i,k = 1,2,3,4
-\]
-
+\end{equation}
 where, like in equation \eqref{eqn:modal_matrix_elements}, $ k $ is the measurement index, and the element of the modal matrix relative to the forcing position has been neglected.
 
 For well distinguished peaks and lightly damped structures, the experimental Frequency Response Function $ H^\textup{exp}_k(\omega) $ can be approximated by the analytical Frequency Response Function $ H^\textup{num}_k(\omega) $ around a certain $ \omega_{\textup{d}_k}^{(i)} $ as:
@@ -320,7 +320,7 @@ A further improvement of the algorithm could be to perform the minimization simu
 \end{figure}
 
 
-\section{Modal parameter comparison}
+\subsection{Modal parameter comparison}
 
 The estimated modal parameters have been reduced to a single value per mode as for the simplified methods of section \ref{sec:simplified_methods}, averaging among the measurements and resulting in the following vectors:
 
@@ -347,9 +347,20 @@ Instead, the normalized modal matrix is
 All the results are very similar to those obtained with the simplified approach. The greatest divergences are found in the modal matrix, which now should be more accurate.
 
 
-\section{FRFs reconstruction}
+\subsection{FRFs reconstruction}
+Employing a modal approach, we will reconstruct the FRFs and compare with the original ones.
 
+In our \textsc{Matlab} script the variable \texttt{vpar} contains all the modal parameters found through the minimization process, for each measurement and for each mode. Putting those modal parameters in the equation \ref{eqn:Hexp_modal}, implemented in the function \texttt{reco}, we were able to reconstruct the FRFs. 
 
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{FRFrecoMOD}
+\end{figure}
 
+\begin{figure}[H]
+	\includegraphics[scale=0.3]{FRFrecoPHASE}
+\end{figure}
+
+The previous plots represent respectively amplitude and phase of the reconstructed FRFs in comparison with the experimental ones.
+It can be seen that the reconstruction is pretty close both in amplitude and in phase.
 
 \end{document}

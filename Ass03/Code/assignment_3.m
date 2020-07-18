@@ -352,6 +352,8 @@ FRFreco = reco(vpar, f);
 figure('Name', 'Reconstructed FRFs'' modulus');
 
 subplot(2,2,1)
+plot(f,abs(H1));
+hold on
 plot(f,abs(FRFreco(1,:)));
 axis([0, f_max, 0, max(abs(FRFreco(1,:)))*1.1]);
 title('FRF between x_1 and F - modulus','FontSize',8);
@@ -359,6 +361,8 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_1(f)|','FontSize',12)
 grid on
 
 subplot(2,2,2)
+plot(f,abs(H2));
+hold on
 plot(f,abs(FRFreco(2,:)));
 axis([0, f_max, 0, max(abs(FRFreco(2,:)))*1.1]);
 title('FRF between x_2 and F - modulus','FontSize',8);
@@ -366,6 +370,8 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_2(f)|','FontSize',12)
 grid on
 
 subplot(2,2,3)
+plot(f,abs(H3));
+hold on
 plot(f,abs(FRFreco(3,:)));
 axis([0, f_max, 0, max(abs(FRFreco(3,:)))*1.1]);
 title('FRF between x_3 and F - modulus','FontSize',8);
@@ -373,6 +379,8 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_3(f)|','FontSize',12)
 grid on
 
 subplot(2,2,4)
+plot(f,abs(H4));
+hold on
 plot(f,abs(FRFreco(4,:)));
 axis([0, f_max, 0, max(abs(FRFreco(4,:)))*1.1]);
 title('FRF between x_4 and F - modulus','FontSize',8);
@@ -380,9 +388,13 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_4(f)|','FontSize',12)
 grid on
 
 
+legend('Experimental', 'Reconstructed')
+
 figure('Name', 'Recontructed FRFs'' phase');
 
 subplot(2,2,1)
+plot(f,angle(H1));
+hold on
 plot(f,angle(FRFreco(1,:)));
 axis([0, f_max, -pi, pi]);
 title('FRF between x_1 and F - phase','FontSize',8);
@@ -390,6 +402,8 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_1
 grid on
 
 subplot(2,2,2)
+plot(f,angle(H2));
+hold on
 plot(f,angle(FRFreco(2,:)));
 axis([0, f_max, -pi, pi]);
 title('FRF between x_2 and F - phase','FontSize',8);
@@ -397,6 +411,8 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_2
 grid on
 
 subplot(2,2,3)
+plot(f,angle(H3));
+hold on
 plot(f,angle(FRFreco(3,:)));
 axis([0, f_max, -pi, pi]);
 title('FRF between x_3 and F - phase','FontSize',8);
@@ -404,9 +420,14 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_3
 grid on
 
 subplot(2,2,4)
+plot(f,angle(H4));
+hold on
 plot(f,angle(FRFreco(4,:)));
 axis([0, f_max, -pi, pi]);
 title('FRF between x_4 and F - phase','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_4(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
+
+legend('Experimental', 'Reconstructed')
+
 
