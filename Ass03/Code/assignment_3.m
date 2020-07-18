@@ -265,8 +265,8 @@ for mm = 1:R %over the n measurement
         % Reconstruction
         Hjkiid=funHjki(vpar(mm,pp,:), rfHjki);
         
-        FRFreco(mm, iini:ifin) = Hjkiid;
-        %FRFreco(mm, :) = FRFreco(mm, :) + funHjki(vpar(mm,pp,:), f);
+        %FRFreco(mm, iini:ifin) = Hjkiid; %Giustaapposteh
+
         
         %Plot - plis, do not explode
         ngraph = (mm-1)*C + pp;
@@ -347,6 +347,7 @@ xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_4(f)|','FontSize',12)
 grid on
 
 % Plots FRF reco
+FRFreco = reco(vpar, f);
 
 figure('Name', 'Reconstructed FRFs'' modulus');
 
