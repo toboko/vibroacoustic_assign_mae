@@ -230,6 +230,7 @@ R = rows(csi);
 C = cols(csi);
 
 vpar = zeros(R,C,9);
+FRFreco = zeros(size(H));
 
 disp('Minimization started...')
 for mm = 1:R %over the n measurement
@@ -264,6 +265,9 @@ for mm = 1:R %over the n measurement
         % Reconstruction
         Hjkiid=funHjki(vpar(mm,pp,:), rfHjki);
         
+        FRFreco(mm, iini:ifin) = Hjkiid;
+        %FRFreco(mm, :) = FRFreco(mm, :) + funHjki(vpar(mm,pp,:), f);
+        
         %Plot - plis, do not explode
         ngraph = (mm-1)*C + pp;
         figure(f1)
@@ -295,8 +299,7 @@ legend('Experimental','Identified')
 
 %% Altri plot
 
-% Plots
-
+% Plots MAX & MIN
 figure('Name', 'Experimental FRFs'' modulus - Max & Min');
 
 subplot(2,2,1)
@@ -341,5 +344,68 @@ plot(f(indices_H(4,:)),abs(H4(indices_H(4,:))), 'r*');
 axis([0, f_max, 0, max(abs(H4))*1.1]);
 title('FRF between x_4 and F - modulus','FontSize',8);
 xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_4(f)|','FontSize',12);
+grid on
+
+% Plots FRF reco
+
+figure('Name', 'Reconstructed FRFs'' modulus');
+
+subplot(2,2,1)
+plot(f,abs(FRFreco(1,:)));
+axis([0, f_max, 0, max(abs(FRFreco(1,:)))*1.1]);
+title('FRF between x_1 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_1(f)|','FontSize',12);
+grid on
+
+subplot(2,2,2)
+plot(f,abs(FRFreco(2,:)));
+axis([0, f_max, 0, max(abs(FRFreco(2,:)))*1.1]);
+title('FRF between x_2 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_2(f)|','FontSize',12);
+grid on
+
+subplot(2,2,3)
+plot(f,abs(FRFreco(3,:)));
+axis([0, f_max, 0, max(abs(FRFreco(3,:)))*1.1]);
+title('FRF between x_3 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_3(f)|','FontSize',12);
+grid on
+
+subplot(2,2,4)
+plot(f,abs(FRFreco(4,:)));
+axis([0, f_max, 0, max(abs(FRFreco(4,:)))*1.1]);
+title('FRF between x_4 and F - modulus','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('|H^{exp}_4(f)|','FontSize',12);
+grid on
+
+
+figure('Name', 'Recontructed FRFs'' phase');
+
+subplot(2,2,1)
+plot(f,angle(FRFreco(1,:)));
+axis([0, f_max, -pi, pi]);
+title('FRF between x_1 and F - phase','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_1(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
+grid on
+
+subplot(2,2,2)
+plot(f,angle(FRFreco(2,:)));
+axis([0, f_max, -pi, pi]);
+title('FRF between x_2 and F - phase','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_2(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
+grid on
+
+subplot(2,2,3)
+plot(f,angle(FRFreco(3,:)));
+axis([0, f_max, -pi, pi]);
+title('FRF between x_3 and F - phase','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_3(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
+grid on
+
+subplot(2,2,4)
+plot(f,angle(FRFreco(4,:)));
+axis([0, f_max, -pi, pi]);
+title('FRF between x_4 and F - phase','FontSize',8);
+xlabel('frequency f [Hz]','FontSize',12); ylabel('$ \angle\bigl(H^\textup{exp}_4(f)\bigr) $ \, [rad]','Interpreter','LaTeX','FontSize',12);
 grid on
 
