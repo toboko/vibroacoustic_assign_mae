@@ -39,4 +39,3 @@ H_anal = (Ai + 1i*Bi)./(-omega.^2 + 2i*omega.*(csii*w0i) + w0i^2) + ...
 c_e = H_anal - H_exp; %complex error
 errore = sum(real(c_e).^2) + sum(imag(c_e).^2) + err0;
 end
-

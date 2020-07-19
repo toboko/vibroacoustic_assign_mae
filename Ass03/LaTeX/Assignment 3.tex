@@ -21,7 +21,18 @@
 heightrounded,bindingoffset=5mm}
 
 % Enumeration settings
-\renewcommand\thesubsection{\thesection.\alph{subsection}}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+% Reset section counter with new part
+%\makeatletter
+%\@addtoreset{section}{part}
+%\makeatother
+%\renewcommand{\thesection}{\Alph{section}}
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+%\newcommand{\tipologia}[1]{%
+%  \stepcounter{part}% Ecco il trucco
+%  \section*{Tipologia \thesection. #1}}
+
 
 % Code visualization settings
 \lstset{basicstyle=\small\ttfamily}
@@ -209,6 +220,13 @@ Normalizing the elements of each measure taking the first one as reference the r
 
 These values are in agreement with the magnitude and phase plots of \ref{sec:experimental_frfs}: the modulus of $ \phi^{(i)}_k $ is approximatedly the relative value in the amplitude plots, while its sign follows the sign of the phase in the phase plots. The biggest divergence between the absolute value of the elements in the modal matrix and the plotted values is about measurement 3, 3\textsuperscript{rd} mode, which should have a relative magnitude of $ \frac{1}{3} $ with respect to the 1\textsuperscript{st} measurement, but the corresponding element in $ \bm{\phi} $ indicates $ \frac{1}{2} $. This is certainly due to the approximated values of the modal matrix, obtained by means of a simplified method. In the next section, we go on with the analysis using a more accurate procedure, which is a modal parameter identification model.
 
+\clearpage
+
+
+\part*{OPTIONAL}
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{\roman{section}}
 
 \section{Modal parameter identification}
 
@@ -236,11 +254,12 @@ With this approach, the dynamic response of the structure subjected to the known
 From the modal approach theory, we know that, as far as a sufficient number of modes $ N $ are considered, the following gives the expression for $ H^\textup{exp}_k(\omega) $:
 
 \begin{equation}
-\label{eqn:Hexp_modal} 
+\label{eqn:h_exp_modal} 
 	H^\textup{exp}_k(\omega) = \sum_{i=1}^{N} \frac{\phi_k^{(i)}}
 		{-\omega^2 m^{(i)}_k + j \omega c^{(i)}_k + k^{(i)}_k}
 		~ \text{,} ~ i,k = 1,2,3,4
 \end{equation}
+
 where, like in equation \eqref{eqn:modal_matrix_elements}, $ k $ is the measurement index, and the element of the modal matrix relative to the forcing position has been neglected.
 
 For well distinguished peaks and lightly damped structures, the experimental Frequency Response Function $ H^\textup{exp}_k(\omega) $ can be approximated by the analytical Frequency Response Function $ H^\textup{num}_k(\omega) $ around a certain $ \omega_{\textup{d}_k}^{(i)} $ as:
@@ -307,20 +326,20 @@ It follows that $ B^{(i)}_k = 0 $.
 \end{enumerate}
 
 The non-linear minimization procedure elaborates separately the FRFs, leading to an estimate of the modal parameters $ \omega_{\textup{d}_k}^{(i)}, \xi_k^{(i)}, A_k^{(i)} $ for every frequency range (i.e. for every peak) and for every measurement. Then the parameters are averaged. 
-A further improvement of the algorithm could be to perform the minimization simultaneously on the whole set of FRFs, leading to a more precise estimate of the modal parameters. In this case the information given by the correlation of the FRFs is exploited. The quality of the estimates can be visually assessed comparing in a plot the identified FRFs $ H^\textup{num}_k(\omega) $ with the experimental ones $ H^\textup{exp}_k(\omega) $: as for the moduli, we may conclude the algorithm worked very well for the 2\textsuperscript{nd}, 3\textsuperscript{rd} and 4\textsuperscript{th} mode, being the curves we started with very well approximated by the results, and fairly well for the 1\textsuperscript{st} mode, for which the quasi-static contributions of the other modes, which we neglected for the initial guess of the minimization, could be playing a greater role than for the other modes. Nevertheless, the most relevant reason for the lack in precision is the fact the frequency ranges taken into account are too tight, meaning that the first mode actually would go a bit beyond the bound we set in frequency. The phase plots show an overall quite good reconstruction, with just a couple of plots showing other $ -90^\circ $ jumps after the correct one.
+A further improvement of the algorithm could be to perform the minimization simultaneously on the whole set of FRFs, leading to a more precise estimate of the modal parameters. In this case the information given by the correlation of the FRFs is exploited. The quality of the estimates can be visually assessed comparing in a plot the identified FRFs $ H^\textup{num}_k(\omega) $ with the experimental ones $ H^\textup{exp}_k(\omega) $: we may conclude the algorithm already worked very well in general. The major flow is in the last phase plot: a $ +90^\circ $ jump is shown, as if an anti-resonance were present after the FRF's pole.
 
 \begin{figure}[h]
 	\hspace{-70pt}
-	\includegraphics[scale=0.4]{frfs_exp_vs_num_modulus}
+	\includegraphics[scale=0.4]{frfs_anal_vs_exp_modulus}
 \end{figure}
 
 \begin{figure}[H]
 	\hspace{-70pt}
-	\includegraphics[scale=0.4]{frfs_exp_vs_num_phase}
+	\includegraphics[scale=0.4]{frfs_anal_vs_exp_phase}
 \end{figure}
 
 
-\subsection{Modal parameter comparison}
+\section{Modal parameter comparison}
 
 The estimated modal parameters have been reduced to a single value per mode as for the simplified methods of section \ref{sec:simplified_methods}, averaging among the measurements and resulting in the following vectors:
 
@@ -347,20 +366,134 @@ Instead, the normalized modal matrix is
 All the results are very similar to those obtained with the simplified approach. The greatest divergences are found in the modal matrix, which now should be more accurate.
 
 
-\subsection{FRFs reconstruction}
-Employing a modal approach, we will reconstruct the FRFs and compare with the original ones.
+\section{FRFs reconstruction}
 
-In our \textsc{Matlab} script the variable \texttt{vpar} contains all the modal parameters found through the minimization process, for each measurement and for each mode. Putting those modal parameters in the equation \ref{eqn:Hexp_modal}, implemented in the function \texttt{reco}, we were able to reconstruct the FRFs. 
+Employing a modal approach, we will reconstruct the FRFs and compare them with the original ones.
+
+In our \textsc{Matlab} script the variable \lstinline!vpar! contains all the modal parameters found through the minimization process, for each measurement and for each mode. Putting those modal parameters in the equation \eqref{eqn:h_exp_modal}, implemented in the function \lstinline!reco!, we were able to reconstruct the FRFs. 
 
 \begin{figure}[H]
-	\includegraphics[scale=0.3]{FRFrecoMOD}
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{frfs_rec_vs_exp_modulus}
 \end{figure}
 
 \begin{figure}[H]
-	\includegraphics[scale=0.3]{FRFrecoPHASE}
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{frfs_rec_vs_exp_phase}
 \end{figure}
 
 The previous plots represent respectively amplitude and phase of the reconstructed FRFs in comparison with the experimental ones.
-It can be seen that the reconstruction is pretty close both in amplitude and in phase.
+It can be seen that the reconstruction is very much close both in amplitude and in phase, as we could predict from the previous plots.
+
+
+\part*{EXTRA}
+
+\section{Co-located FRF for $ x_2 $}
+
+The requested co-located FRF is the second element on the diagonal of the Frequency Response Matrix of the system. To reconstruct this matrix, we chose to first reconstruct the modal FRM, computing the modal FRFs thanks to the modal mass, damping and stiffness matrices obtained in the minimization process, and then to pass to the system's FRM with the modal matrix $ \bm{\phi} $. The first step was to obtain the modal matrices $ \mathbf{M_q} $, $ \mathbf{C_q} $ and $ \mathbf{K_q} $ from the values stored in \lstinline!vpar!, by computing the mean measurement-wise and then assigning the results to the elements in the diagonal of the matrices:
+
+\[ \begin{split}
+	\mathbf{M_q} =	\begin{bmatrix}
+										1	& 0	& 0	& 0 \\
+										0	& 1	& 0	& 0 \\
+										0	& 0	& 1	& 0 \\
+										0	& 0	& 0	& 1
+									\end{bmatrix} \text{~ , ~}
+		\mathbf{C_q} =	\begin{bmatrix}
+											0.3347	& 0				& 0				& 0 \\
+											0				& 0.3326	& 0				& 0 \\
+											0				& 0				& 0.3339	& 0 \\
+											0				& 0				& 0				& 0.3566
+										\end{bmatrix} \text{~ , ~} \\[10pt]
+	\mathbf{K_q} =	\begin{bmatrix}
+										43.5295	& 0					& 0					& 0 \\
+										0				& 154.0437	& 0					& 0 \\
+										0				& 0					& 281.1869	& 0 \\
+										0				& 0					& 0					& 371.2903
+									\end{bmatrix}
+\end{split} \]
+
+Considering the system having these matrices as system parameters, we computed the modal Frequency Response Matrix as usual
+
+\[
+	\mathbf{H_q}(\Omega) = \mathbf{D_q}^{-1}(\Omega) =
+		(-\Omega^2 \, \mathbf{M_q} + j \Omega \, \mathbf{C_q} + \mathbf{K_q})^{-1}
+\]
+
+where $ \mathbf{D_q}(\Omega) $ is the mechanical impedance matrix of the system. The outcome is the following FRM:
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{modal_frfs_modulus}
+\end{figure}
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{modal_frfs_phase}
+\end{figure}
+
+which is diagonal as expected. We then exploited the formula $	\mathbf{H}(\Omega) = \bm{\phi} \, \mathbf{H_q}(\Omega) \, \bm{\phi}^\textup{T} $ to pass from one FRM to the one we need. The system's FRM is depicted in the following plots in terms of magnitude and phase.
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{frfs_modulus}
+\end{figure}
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{frfs_phase}
+\end{figure}
+
+To verify the FRFs are correct, we may compare the first column of the matrix with the four experimental FRFs, which are indeed the transfer functions between the four displacements we were given, seen in this case as independent variables of a 4-degree-of-freedom system, and the force applied to the first one of them. We can see the curves qualitatively coincide, being the difference due to the fact so far we've normalized each mass to $ 1 $. With the correct values of the masses, each peak would be scaled to a different extent so that the FRFs would superimpose with the experimental ones.
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{frfs_num_vs_exp_modulus}
+\end{figure}
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{frfs_num_vs_exp_phase}
+\end{figure}
+
+The second element on the diagonal is the co-located Frequency Response Function relative to point 2:
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\includegraphics[scale=0.4]{co-located_point2}
+\end{figure}
+
+
+\section{Generalized matrices of numerical model}
+
+Finally, to retrieve the system's matrices, considering the numerical model of the 4-degree-of-freedom system as before, we can proceed using the inverse of the well-known formula (applied only to the mass matrix for the sake of demonstration)
+
+\[
+	\mathbf{M_q} = \bm{\phi}^\textup{T} \, \mathbf{M} \, \bm{\phi}
+\]
+
+Since $ \bm{\phi} \, \bm{\phi}^\textup{T} \neq \alpha \, \mathbf{I} $, our modes are not orthogonal in strict sense. Therefore, we need to use actual inverse matrix to invert the previous formula. The resulting generalized mass, damping and stiffness matrices are reported here.
+
+\[ \begin{split}
+	\mathbf{M} =	\begin{bmatrix}
+										0.2984	& 0.0037	& CAZZOOO VIENE NEGATIVO	& 0 \\
+										0	& 1	& 0	& 0 \\
+										0	& 0	& 1	& 0 \\
+										0	& 0	& 0	& 1
+									\end{bmatrix} \text{~ , ~}
+		\mathbf{C} =	\begin{bmatrix}
+											0.3347	& 0				& 0				& 0 \\
+											0				& 0.3326	& 0				& 0 \\
+											0				& 0				& 0.3339	& 0 \\
+											0				& 0				& 0				& 0.3566
+										\end{bmatrix} \text{~ , ~} \\[10pt]
+	\mathbf{K} =	\begin{bmatrix}
+										43.5295	& 0					& 0					& 0 \\
+										0				& 154.0437	& 0					& 0 \\
+										0				& 0					& 281.1869	& 0 \\
+										0				& 0					& 0					& 371.2903
+									\end{bmatrix}
+\end{split} \]
+
 
 \end{document}

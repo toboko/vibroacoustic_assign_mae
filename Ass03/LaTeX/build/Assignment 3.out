@@ -1,6 +1,8 @@
 \BOOKMARK [1][-]{section.1}{Experimental FRFs}{}% 1
 \BOOKMARK [1][-]{section.2}{Simplified methods for model identification}{}% 2
-\BOOKMARK [1][-]{section.3}{Modal parameter identification}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Vibration modes identification procedure}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Modal parameter comparison}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{FRFs reconstruction}{section.3}% 6
+\BOOKMARK [1][-]{section.1}{Modal parameter identification}{}% 3
+\BOOKMARK [2][-]{subsection.1.1}{Vibration modes identification procedure}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Modal parameter comparison}{}% 5
+\BOOKMARK [1][-]{section.3}{FRFs reconstruction}{}% 6
+\BOOKMARK [1][-]{section.4}{Co-located FRF for \040x2 }{}% 7
+\BOOKMARK [1][-]{section.5}{Generalized matrices of numerical model}{}% 8
