@@ -21,7 +21,8 @@
 heightrounded,bindingoffset=5mm}
 
 % Enumeration settings
-\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+\renewcommand{\thesection}{\arabic{section})}
+\renewcommand{\thesubsection}{\arabic{section}\alph{subsection})}
 
 % Reset section counter with new part
 %\makeatletter
@@ -226,7 +227,8 @@ These values are in agreement with the magnitude and phase plots of \ref{sec:exp
 \part*{OPTIONAL}
 
 \setcounter{section}{0}
-\renewcommand{\thesection}{\roman{section}}
+\renewcommand{\thesection}{\roman{section})}
+\renewcommand{\thesubsection}{\roman{section}\alph{subsection})}
 
 \section{Modal parameter identification}
 
@@ -290,7 +292,7 @@ The frequency ranges of interest are partitions of the frequency axis. Given the
 	\includegraphics[scale=0.4]{experimental_frfs_modulus_min_max}
 \end{figure}
 
-\subsection{Vibration modes identification procedure}
+\subsection*{Vibration modes identification procedure}
 
 For a given set of experimental FRFs $ H^\textup{exp}_k(\omega) $, obtained for a fixed excitation location and different measurement locations $ k $ (4 points), a least squares minimization procedure can be implemented for the estimation of the modal parameters.
 
@@ -389,6 +391,7 @@ It can be seen that the reconstruction is very much close both in amplitude and 
 \part*{EXTRA}
 
 \section{Co-located FRF for $ x_2 $}
+\label{sec:co-located_point2}
 
 The requested co-located FRF is the second element on the diagonal of the Frequency Response Matrix of the system. To reconstruct this matrix, we chose to first reconstruct the modal FRM, computing the modal FRFs thanks to the modal mass, damping and stiffness matrices obtained in the minimization process, and then to pass to the system's FRM with the modal matrix $ \bm{\phi} $. The first step was to obtain the modal matrices $ \mathbf{M_q} $, $ \mathbf{C_q} $ and $ \mathbf{K_q} $ from the values stored in \lstinline!vpar!, by computing the mean measurement-wise and then assigning the results to the elements in the diagonal of the matrices:
 
@@ -472,28 +475,30 @@ Finally, to retrieve the system's matrices, considering the numerical model of t
 	\mathbf{M_q} = \bm{\phi}^\textup{T} \, \mathbf{M} \, \bm{\phi}
 \]
 
-Since $ \bm{\phi} \, \bm{\phi}^\textup{T} \neq \alpha \, \mathbf{I} $, our modes are not orthogonal in strict sense. Therefore, we need to use actual inverse matrix to invert the previous formula. The resulting generalized mass, damping and stiffness matrices are reported here.
+Since $ \bm{\phi} \, \bm{\phi}^\textup{T} \neq \alpha \, \mathbf{I} $, with $ \alpha $ being a real constant and $ \mathbf{I} $ the identity matrix, that producti is a full matrix and our modes are not orthogonal in strict sense. Therefore, we need to use actual inverse matrix to invert the previous formula. The resulting generalized mass, damping and stiffness matrices are reported here.
 
 \[ \begin{split}
-	\mathbf{M} =	\begin{bmatrix}
-										0.2984	& 0.0037	& CAZZOOO VIENE NEGATIVO	& 0 \\
-										0	& 1	& 0	& 0 \\
-										0	& 0	& 1	& 0 \\
-										0	& 0	& 0	& 1
+	\mathbf{M} & =	\begin{bmatrix}
+										0.2984	& 0.0037	& 0.1027	& 0.0074 \\
+										0.0037	& 0.2315	& -0.0261	& -0.0765 \\
+										0.1027	& -0.0261	& 0.2244	& 0.0251 \\
+										0.0074	& -0.0765	& 0.0251	& 0.2718
 									\end{bmatrix} \text{~ , ~}
 		\mathbf{C} =	\begin{bmatrix}
-											0.3347	& 0				& 0				& 0 \\
-											0				& 0.3326	& 0				& 0 \\
-											0				& 0				& 0.3339	& 0 \\
-											0				& 0				& 0				& 0.3566
+											0.0998	& 0.0005	& -0.0334	& 0.0021 \\
+											0.0005	& 0.0784	& -0.0098	& -0.0244 \\
+											-0.0334	& -0.0098	& 0.0762	& 0.0072 \\
+											0.0021	& -0.0244	& 0.0072	& 0.0916
 										\end{bmatrix} \text{~ , ~} \\[10pt]
-	\mathbf{K} =	\begin{bmatrix}
-										43.5295	& 0					& 0					& 0 \\
-										0				& 154.0437	& 0					& 0 \\
-										0				& 0					& 281.1869	& 0 \\
-										0				& 0					& 0					& 371.2903
+	\mathbf{K} & =	\begin{bmatrix}
+										61.4496		& -21.3564	& -18.4037	& 9.1915 \\
+										-21.3564	& 46.2782		& -17.5493	& -18.1883 \\
+										-18.4037	& -17.5493	& 44.3193		& -15.4670 \\
+										9.1915		& -18.1883	& -15.4670	& 65.5474
 									\end{bmatrix}
 \end{split} \]
+
+If we had to construct the Frequency Response Matrix from these generalized matrices, we would directly get the same FRM we found in section \ref{sec:co-located_point2}.
 
 
 \end{document}

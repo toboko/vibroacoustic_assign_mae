@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  15 JUL 2020 15:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  19 JUL 2020 10:02
 entering extended mode
 **"./Assignment 1.tex"
 ("Assignment 1.tex"
@@ -361,20 +361,20 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) ("C:\Users\Jacu\Desktop\Assignment 1\LaTeX\build\Assignment 1.aux")
 \openout1 = `"Assignment 1.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
 i"
@@ -442,7 +442,7 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 37.
+Package hyperref Info: Link coloring OFF on input line 38.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -454,20 +454,20 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count127
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
  ("C:\Users\Jacu\Desktop\Assignment 1\LaTeX\build\Assignment 1.out") ("C:\Users
 \Jacu\Desktop\Assignment 1\LaTeX\build\Assignment 1.out")
 \@outlinefile=\write4
 \openout4 = `"Assignment 1.out"'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 40.
+LaTeX Font Info:    Try loading font information for U+msa on input line 41.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 40.
+LaTeX Font Info:    Try loading font information for U+msb on input line 41.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -475,15 +475,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Images/system_schematic.jpg, id=51, 580.569pt x 485.4135pt>
 File: Images/system_schematic.jpg Graphic file (type jpg)
 <use Images/system_schematic.jpg>
-Package pdftex.def Info: Images/system_schematic.jpg  used on input line 46.
+Package pdftex.def Info: Images/system_schematic.jpg  used on input line 47.
 (pdftex.def)             Requested size: 328.62791pt x 274.76279pt.
 
-Overfull \hbox (58.65726pt too wide) detected at line 67
+Overfull \hbox (58.65726pt too wide) detected at line 68
 []
  []
 
 
-Overfull \hbox (338.62791pt too wide) detected at line 67
+Overfull \hbox (338.62791pt too wide) detected at line 68
 []
  []
 
@@ -494,12 +494,12 @@ tem_schematic.jpg>]
 <Images/reference_axes.pdf, id=66, 309.27545pt x 321.10966pt>
 File: Images/reference_axes.pdf Graphic file (type pdf)
 <use Images/reference_axes.pdf>
-Package pdftex.def Info: Images/reference_axes.pdf  used on input line 78.
+Package pdftex.def Info: Images/reference_axes.pdf  used on input line 79.
 (pdftex.def)             Requested size: 70.41771pt x 73.1089pt.
 <Images/reference_spring.pdf, id=67, 329.96275pt x 197.85919pt>
 File: Images/reference_spring.pdf Graphic file (type pdf)
 <use Images/reference_spring.pdf>
-Package pdftex.def Info: Images/reference_spring.pdf  used on input line 81.
+Package pdftex.def Info: Images/reference_spring.pdf  used on input line 82.
 (pdftex.def)             Requested size: 70.41771pt x 42.2249pt.
  [2
 
@@ -507,11 +507,11 @@ Package pdftex.def Info: Images/reference_spring.pdf  used on input line 81.
 <Images/free_time_response.png, id=99, 1445.4pt x 705.38531pt>
 File: Images/free_time_response.png Graphic file (type png)
 <use Images/free_time_response.png>
-Package pdftex.def Info: Images/free_time_response.png  used on input line 279.
+Package pdftex.def Info: Images/free_time_response.png  used on input line 280.
 
 (pdftex.def)             Requested size: 505.89758pt x 246.88855pt.
 
-Overfull \hbox (9.03757pt too wide) in paragraph at lines 278--280
+Overfull \hbox (9.03757pt too wide) in paragraph at lines 279--281
 []  [] 
  []
 
@@ -522,10 +522,10 @@ File: Images/free_time_response_halved_damping_ratio.png Graphic file (type png
 )
 <use Images/free_time_response_halved_damping_ratio.png>
 Package pdftex.def Info: Images/free_time_response_halved_damping_ratio.png  us
-ed on input line 306.
+ed on input line 307.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 305--307
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 306--308
 []  [] 
  []
 
@@ -536,10 +536,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 305--307
 File: Images/free_time_response_overdamped.png Graphic file (type png)
 <use Images/free_time_response_overdamped.png>
 Package pdftex.def Info: Images/free_time_response_overdamped.png  used on inpu
-t line 327.
+t line 328.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 326--328
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 327--329
 []  [] 
  []
 
@@ -549,10 +549,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 326--328
 <Images/frf.png, id=130, 1445.4pt x 705.38531pt>
 File: Images/frf.png Graphic file (type png)
 <use Images/frf.png>
-Package pdftex.def Info: Images/frf.png  used on input line 354.
+Package pdftex.def Info: Images/frf.png  used on input line 355.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 353--355
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 354--356
 []  [] 
  []
 
@@ -560,10 +560,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 353--355
 File: Images/frf_halved_damping_ratio.png Graphic file (type png)
 <use Images/frf_halved_damping_ratio.png>
 Package pdftex.def Info: Images/frf_halved_damping_ratio.png  used on input lin
-e 365.
+e 366.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 364--366
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 365--367
 []  [] 
  []
 
@@ -574,10 +574,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 364--366
 <Images/frf_overdamped.png, id=138, 1445.4pt x 705.38531pt>
 File: Images/frf_overdamped.png Graphic file (type png)
 <use Images/frf_overdamped.png>
-Package pdftex.def Info: Images/frf_overdamped.png  used on input line 374.
+Package pdftex.def Info: Images/frf_overdamped.png  used on input line 375.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 373--375
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 374--376
 []  [] 
  []
 
@@ -586,10 +586,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 373--375
 File: Images/complete_time_responses.png Graphic file (type png)
 <use Images/complete_time_responses.png>
 Package pdftex.def Info: Images/complete_time_responses.png  used on input line
- 433.
+ 434.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 432--434
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 433--435
 []  [] 
  []
 
@@ -597,40 +597,44 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 432--434
 <Images/force.png, id=155, 1445.4pt x 705.38531pt>
 File: Images/force.png Graphic file (type png)
 <use Images/force.png>
-Package pdftex.def Info: Images/force.png  used on input line 450.
+Package pdftex.def Info: Images/force.png  used on input line 451.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 449--451
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 450--452
 []  [] 
  []
 
 <Images/forced_response.png, id=156, 1445.4pt x 705.38531pt>
 File: Images/forced_response.png Graphic file (type png)
 <use Images/forced_response.png>
-Package pdftex.def Info: Images/forced_response.png  used on input line 455.
+Package pdftex.def Info: Images/forced_response.png  used on input line 456.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 454--456
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 455--457
 []  [] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 459.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 460.
 [11
 
 ] [12 <./Images/force.png (PNG copy)> <./Images/forced_response.png (PNG copy)>
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 459.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 460.
  ("C:\Users\Jacu\Desktop\Assignment 1\LaTeX\build\Assignment 1.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 459.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 459.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 460.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 460.
 Package rerunfilecheck Info: File `"Assignment 1".out' has not changed.
 (rerunfilecheck)             Checksum: 280B86FC673BB9C927578C0139F2E4A5;905.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 459.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 460.
  ) 
 Here is how much of TeX's memory you used:
  7472 strings out of 492973
  109224 string characters out of 3127135
- 218313 words of memory out of 3000000
+ 218331 words of memory out of 3000000
  11176 multiletter control sequences out of 15000+200000
  19225 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -659,7 +663,7 @@ blic/amsfonts/cm/cmsy6.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Jacu/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "C:\Users\Jacu\Desktop\Assignment 1\LaTeX\build\Assignment 1.
-pdf" (12 pages, 1059164 bytes).
+pdf" (12 pages, 1059361 bytes).
 PDF statistics:
  467 PDF objects out of 1000 (max. 8388607)
  40 named destinations out of 1000 (max. 500000)

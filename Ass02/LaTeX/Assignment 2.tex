@@ -21,7 +21,8 @@
 	heightrounded,bindingoffset=5mm}
 
 % Enumeration settings
-\renewcommand\thesubsection{\thesection.\alph{subsection}}
+\renewcommand{\thesection}{\arabic{section})}
+\renewcommand{\thesubsection}{\arabic{section}\alph{subsection})}
 
 % Code visualization settings
 \lstset{basicstyle=\small\ttfamily}
@@ -849,7 +850,7 @@ Finally, the system is analyzed using a modal superposition method to find the F
 
 \vspace{20pt}
 
-\subsection{Equation of motion and Frequency Response Matrix}
+\subsection{Equation of motion and modal Frequency Response Matrix}
 
 The equation in modal coordinates is found thanks to the relation
 

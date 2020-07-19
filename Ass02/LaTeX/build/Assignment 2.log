@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  15 JUL 2020 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  19 JUL 2020 09:58
 entering extended mode
 **"./Assignment 2.tex"
 ("Assignment 2.tex"
@@ -400,20 +400,20 @@ File: lstlang1.sty 2018/09/02 1.7 listings language file
 ) ("C:\Users\Jacu\Desktop\Assignment 2\LaTeX\build\Assignment 2.aux")
 \openout1 = `"Assignment 2.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 \c@lstlisting=\count129
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
@@ -482,7 +482,7 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 45.
+Package hyperref Info: Link coloring OFF on input line 46.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -494,20 +494,20 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count136
 )
-LaTeX Info: Redefining \ref on input line 45.
-LaTeX Info: Redefining \pageref on input line 45.
-LaTeX Info: Redefining \nameref on input line 45.
+LaTeX Info: Redefining \ref on input line 46.
+LaTeX Info: Redefining \pageref on input line 46.
+LaTeX Info: Redefining \nameref on input line 46.
  ("C:\Users\Jacu\Desktop\Assignment 2\LaTeX\build\Assignment 2.out") ("C:\Users
 \Jacu\Desktop\Assignment 2\LaTeX\build\Assignment 2.out")
 \@outlinefile=\write4
 \openout4 = `"Assignment 2.out"'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 49.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 49.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -515,10 +515,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <Images/system_schematic.jpg, id=71, 578.16pt x 272.217pt>
 File: Images/system_schematic.jpg Graphic file (type jpg)
 <use Images/system_schematic.jpg>
-Package pdftex.def Info: Images/system_schematic.jpg  used on input line 53.
+Package pdftex.def Info: Images/system_schematic.jpg  used on input line 54.
 (pdftex.def)             Requested size: 422.52058pt x 198.93687pt.
 
-Overfull \hbox (11.85329pt too wide) detected at line 72
+Overfull \hbox (11.85329pt too wide) detected at line 73
 []
  []
 
@@ -529,47 +529,47 @@ tem_schematic.jpg>]
 <Images/reference_axes.pdf, id=86, 309.27545pt x 321.10966pt>
 File: Images/reference_axes.pdf Graphic file (type pdf)
 <use Images/reference_axes.pdf>
-Package pdftex.def Info: Images/reference_axes.pdf  used on input line 99.
+Package pdftex.def Info: Images/reference_axes.pdf  used on input line 100.
 (pdftex.def)             Requested size: 70.41771pt x 73.1089pt.
 <Images/reference_spring.pdf, id=87, 329.96275pt x 197.85919pt>
 File: Images/reference_spring.pdf Graphic file (type pdf)
 <use Images/reference_spring.pdf>
-Package pdftex.def Info: Images/reference_spring.pdf  used on input line 102.
+Package pdftex.def Info: Images/reference_spring.pdf  used on input line 103.
 (pdftex.def)             Requested size: 70.41771pt x 42.2249pt.
  [2
 
  <./Images/reference_axes.pdf> <./Images/reference_spring.pdf>]
-Overfull \hbox (22.84576pt too wide) in paragraph at lines 157--187
+Overfull \hbox (22.84576pt too wide) in paragraph at lines 158--188
 []$[]$ $[]$ $[]$ 
  []
 
 
-Overfull \hbox (22.84576pt too wide) in paragraph at lines 190--217
+Overfull \hbox (22.84576pt too wide) in paragraph at lines 191--218
 []$[]$ $[]$ $[]$ 
  []
 
 
-Overfull \hbox (22.84576pt too wide) in paragraph at lines 220--240
+Overfull \hbox (22.84576pt too wide) in paragraph at lines 221--241
 []$[]$ $[]$ $[]$ 
  []
 
 [3]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 295.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 296.
 
  ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 295.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 296.
 
-Overfull \hbox (20.23529pt too wide) in paragraph at lines 315--337
+Overfull \hbox (20.23529pt too wide) in paragraph at lines 316--338
 []$[]$ $[]$ 
  []
 
 [4] [5
 
 ]
-Overfull \hbox (17.4748pt too wide) detected at line 595
+Overfull \hbox (17.4748pt too wide) detected at line 596
 []
  []
 
@@ -577,11 +577,11 @@ Overfull \hbox (17.4748pt too wide) detected at line 595
 <Images/free_time_responses.png, id=143, 1445.4pt x 705.38531pt>
 File: Images/free_time_responses.png Graphic file (type png)
 <use Images/free_time_responses.png>
-Package pdftex.def Info: Images/free_time_responses.png  used on input line 610
+Package pdftex.def Info: Images/free_time_responses.png  used on input line 611
 .
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 609--611
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 610--612
 []  [] 
  []
 
@@ -590,10 +590,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 609--611
 File: Images/free_time_responses_mode2.png Graphic file (type png)
 <use Images/free_time_responses_mode2.png>
 Package pdftex.def Info: Images/free_time_responses_mode2.png  used on input li
-ne 677.
+ne 678.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 676--678
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 677--679
 []  [] 
  []
 
@@ -602,20 +602,20 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 676--678
 File: Images/free_time_responses_mode2_x3.png Graphic file (type png)
 <use Images/free_time_responses_mode2_x3.png>
 Package pdftex.def Info: Images/free_time_responses_mode2_x3.png  used on input
- line 686.
+ line 687.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 685--687
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 686--688
 []  [] 
  []
 
 <Images/frfs_modulus.png, id=160, 1445.4pt x 705.38531pt>
 File: Images/frfs_modulus.png Graphic file (type png)
 <use Images/frfs_modulus.png>
-Package pdftex.def Info: Images/frfs_modulus.png  used on input line 720.
+Package pdftex.def Info: Images/frfs_modulus.png  used on input line 721.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 719--721
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 720--722
 []  [] 
  []
 
@@ -625,10 +625,10 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <Images/frfs_phase.png, id=161, 1445.4pt x 705.38531pt>
 File: Images/frfs_phase.png Graphic file (type png)
 <use Images/frfs_phase.png>
-Package pdftex.def Info: Images/frfs_phase.png  used on input line 725.
+Package pdftex.def Info: Images/frfs_phase.png  used on input line 726.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 724--726
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 725--727
 []  [] 
  []
 
@@ -639,20 +639,20 @@ ulus.png (PNG copy)> <./Images/frfs_phase.png (PNG copy)>]
 <Images/frfs_modulus_x3.png, id=171, 1445.4pt x 705.38531pt>
 File: Images/frfs_modulus_x3.png Graphic file (type png)
 <use Images/frfs_modulus_x3.png>
-Package pdftex.def Info: Images/frfs_modulus_x3.png  used on input line 734.
+Package pdftex.def Info: Images/frfs_modulus_x3.png  used on input line 735.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 733--735
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 734--736
 []  [] 
  []
 
 <Images/co-located_a.png, id=174, 1445.4pt x 705.38531pt>
 File: Images/co-located_a.png Graphic file (type png)
 <use Images/co-located_a.png>
-Package pdftex.def Info: Images/co-located_a.png  used on input line 755.
+Package pdftex.def Info: Images/co-located_a.png  used on input line 756.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 754--756
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 755--757
 []  [] 
  []
 
@@ -660,10 +660,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 754--756
 <Images/co-located_disc2.png, id=179, 1445.4pt x 705.38531pt>
 File: Images/co-located_disc2.png Graphic file (type png)
 <use Images/co-located_disc2.png>
-Package pdftex.def Info: Images/co-located_disc2.png  used on input line 768.
+Package pdftex.def Info: Images/co-located_disc2.png  used on input line 769.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 767--769
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 768--770
 []  [] 
  []
 
@@ -673,10 +673,10 @@ copy)>]
 File: Images/complete_time_responses.png Graphic file (type png)
 <use Images/complete_time_responses.png>
 Package pdftex.def Info: Images/complete_time_responses.png  used on input line
- 813.
+ 814.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 812--814
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 813--815
 []  [] 
  []
 
@@ -686,10 +686,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 812--814
 <Images/forced_motion.png, id=193, 1445.4pt x 705.38531pt>
 File: Images/forced_motion.png Graphic file (type png)
 <use Images/forced_motion.png>
-Package pdftex.def Info: Images/forced_motion.png  used on input line 838.
+Package pdftex.def Info: Images/forced_motion.png  used on input line 839.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 837--839
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 838--840
 []  [] 
  []
 
@@ -697,11 +697,11 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 837--839
 <Images/modal_frfs_modulus.png, id=201, 1445.4pt x 705.38531pt>
 File: Images/modal_frfs_modulus.png Graphic file (type png)
 <use Images/modal_frfs_modulus.png>
-Package pdftex.def Info: Images/modal_frfs_modulus.png  used on input line 929.
+Package pdftex.def Info: Images/modal_frfs_modulus.png  used on input line 930.
 
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 928--930
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 929--931
 []  [] 
  []
 
@@ -709,10 +709,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 928--930
 <Images/modal_frfs_phase.png, id=206, 1445.4pt x 705.38531pt>
 File: Images/modal_frfs_phase.png Graphic file (type png)
 <use Images/modal_frfs_phase.png>
-Package pdftex.def Info: Images/modal_frfs_phase.png  used on input line 934.
+Package pdftex.def Info: Images/modal_frfs_phase.png  used on input line 935.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 933--935
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 934--936
 []  [] 
  []
 
@@ -722,10 +722,10 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 933--935
 File: Images/co-located_a_physical_vs_modal.png Graphic file (type png)
 <use Images/co-located_a_physical_vs_modal.png>
 Package pdftex.def Info: Images/co-located_a_physical_vs_modal.png  used on inp
-ut line 969.
+ut line 970.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 968--970
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 969--971
 []  [] 
  []
 
@@ -737,34 +737,39 @@ Overfull \hbox (41.28975pt too wide) in paragraph at lines 968--970
 File: Images/co-located_disc2_physical_vs_modal.png Graphic file (type png)
 <use Images/co-located_disc2_physical_vs_modal.png>
 Package pdftex.def Info: Images/co-located_disc2_physical_vs_modal.png  used on
- input line 995.
+ input line 996.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 994--996
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 995--997
 []  [] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 999.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1000.
 [18
 
  <./Images/co-located_disc2_physical_vs_modal.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 999.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1000.
 
 ("C:\Users\Jacu\Desktop\Assignment 2\LaTeX\build\Assignment 2.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 999.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 999.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1000.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1000.
+
 Package rerunfilecheck Info: File `"Assignment 2".out' has not changed.
-(rerunfilecheck)             Checksum: 6EC73792F1D86C8C090E5DBC0E9BBFC0;1276.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 999.
+(rerunfilecheck)             Checksum: B51DF821EE00D0B894261C65129B9EC1;1282.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1000.
  ) 
 Here is how much of TeX's memory you used:
  9808 strings out of 492973
  139847 string characters out of 3127135
- 434850 words of memory out of 3000000
+ 434868 words of memory out of 3000000
  13455 multiletter control sequences out of 15000+200000
  27545 words of font info for 80 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,28n,40p,1385b,1806s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,28n,40p,1385b,1627s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
 cbx0800.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecrm0600.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
@@ -796,7 +801,7 @@ cm/cmsy6.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/amsfonts/symbols/msam10.pfb>
 Output written on "C:\Users\Jacu\Desktop\Assignment 2\LaTeX\build\Assignment 2.
-pdf" (18 pages, 1595456 bytes).
+pdf" (18 pages, 1595733 bytes).
 PDF statistics:
  591 PDF objects out of 1000 (max. 8388607)
  50 named destinations out of 1000 (max. 500000)
