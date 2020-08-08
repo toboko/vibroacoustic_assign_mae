@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  16 JUL 2020 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  8 AUG 2020 13:31
 entering extended mode
 **"./Assignment 4.tex"
 ("Assignment 4.tex"
@@ -412,23 +412,24 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 ty"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
 )
-No file "Assignment 4".aux.
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass04\LaTeX\build\Ass
+ignment 4.aux")
 \openout1 = `"Assignment 4.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
-LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 \c@lstlisting=\count129
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
@@ -497,7 +498,7 @@ G,.JBIG2,.JB2,.eps]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 50.
+Package hyperref Info: Link coloring OFF on input line 54.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -509,26 +510,31 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count136
 )
-LaTeX Info: Redefining \ref on input line 50.
-LaTeX Info: Redefining \pageref on input line 50.
-LaTeX Info: Redefining \nameref on input line 50.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
+
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass04\LaTeX\build\Ass
+ignment 4.out")
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass04\LaTeX\build\Ass
+ignment 4.out")
 \@outlinefile=\write4
 \openout4 = `"Assignment 4.out"'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 53.
+LaTeX Font Info:    Try loading font information for U+msa on input line 57.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 53.
+LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/system_schematic.png, id=3, 766.062pt x 258.36525pt>
+<Images/system_schematic.png, id=19, 766.062pt x 258.36525pt>
 File: Images/system_schematic.png Graphic file (type png)
 <use Images/system_schematic.png>
-Package pdftex.def Info: Images/system_schematic.png  used on input line 58.
+Package pdftex.def Info: Images/system_schematic.png  used on input line 62.
 (pdftex.def)             Requested size: 422.52058pt x 142.50343pt.
 
 [1
@@ -537,21 +543,21 @@ Package pdftex.def Info: Images/system_schematic.png  used on input line 58.
 tem_schematic.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 70.
+(hyperref)                removing `\\' on input line 74.
 
 
-Overfull \hbox (3.31384pt too wide) detected at line 98
+Overfull \hbox (3.31384pt too wide) detected at line 102
 []
  []
 
-<Images/mode_shapes_free_fixed.png, id=19, 1445.4pt x 705.38531pt>
+<Images/mode_shapes_free_fixed.png, id=35, 1445.4pt x 705.38531pt>
 File: Images/mode_shapes_free_fixed.png Graphic file (type png)
 <use Images/mode_shapes_free_fixed.png>
 Package pdftex.def Info: Images/mode_shapes_free_fixed.png  used on input line 
-139.
+143.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 138--140
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 142--144
 []  [] 
  []
 
@@ -560,38 +566,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 143.
+(hyperref)                removing `\\' on input line 147.
 
 [2
 
 ]
-Overfull \hbox (6.31378pt too wide) detected at line 157
+Overfull \hbox (6.31378pt too wide) detected at line 161
 []
  []
 
 [3 <./Images/mode_shapes_free_fixed.png (PNG copy)>]
-<Images/mode_shapes_free_free.png, id=39, 1445.4pt x 705.38531pt>
+<Images/mode_shapes_free_free.png, id=53, 1445.4pt x 705.38531pt>
 File: Images/mode_shapes_free_free.png Graphic file (type png)
 <use Images/mode_shapes_free_free.png>
 Package pdftex.def Info: Images/mode_shapes_free_free.png  used on input line 2
-12.
+16.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 211--213
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 215--217
 []  [] 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 216.
+(hyperref)                removing `\\' on input line 220.
 
-[4 <./Images/mode_shapes_free_free.png (PNG copy)>]
-
-LaTeX Warning: Reference `sec:nat_freqs_and_mode_shapes_free_fixed' on page 5 u
-ndefined on input line 261.
-
-[5] (images/frfs_standing_wave_solution.pdf_tex
-<Images/frfs_standing_wave_solution.pdf, id=53, page=1, 1445.4pt x 705.38531pt>
+[4 <./Images/mode_shapes_free_free.png (PNG copy)>] [5]
+(images/frfs_standing_wave_solution.pdf_tex
+<Images/frfs_standing_wave_solution.pdf, id=66, page=1, 1445.4pt x 705.38531pt>
 
 File: Images/frfs_standing_wave_solution.pdf Graphic file (type pdf)
 <use Images/frfs_standing_wave_solution.pdf, page 1>
@@ -599,11 +601,8 @@ Package pdftex.def Info: Images/frfs_standing_wave_solution.pdf , page1 used on
  input line 56.
 (pdftex.def)             Requested size: 469.4705pt x 229.10759pt.
 )
-
-LaTeX Warning: Reference `eqn:frf_sws' on page 6 undefined on input line 294.
-
 (images/frfs_wave_propagation_solution.pdf_tex
-<Images/frfs_wave_propagation_solution.pdf, id=54, page=1, 1445.4pt x 705.38531
+<Images/frfs_wave_propagation_solution.pdf, id=68, page=1, 1445.4pt x 705.38531
 pt>
 File: Images/frfs_wave_propagation_solution.pdf Graphic file (type pdf)
 <use Images/frfs_wave_propagation_solution.pdf, page 1>
@@ -618,7 +617,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  <./Images/frfs_standing_wave_solution.pdf>] [7 <./Images/frfs_wave_propagation
 _solution.pdf>] (images/frfs_modal_superposition_approach.pdf_tex
-<Images/frfs_modal_superposition_approach.pdf, id=71, page=1, 1445.4pt x 705.38
+<Images/frfs_modal_superposition_approach.pdf, id=85, page=1, 1445.4pt x 705.38
 531pt>
 File: Images/frfs_modal_superposition_approach.pdf Graphic file (type pdf)
 <use Images/frfs_modal_superposition_approach.pdf, page 1>
@@ -629,7 +628,7 @@ sed on input line 56.
 
  <./Images/frfs_modal_superposition_approach.pdf>] (images/frfs_wps_vs_msa.pdf_
 tex
-<Images/frfs_wps_vs_msa.pdf, id=78, page=1, 1445.4pt x 705.38531pt>
+<Images/frfs_wps_vs_msa.pdf, id=92, page=1, 1445.4pt x 705.38531pt>
 File: Images/frfs_wps_vs_msa.pdf Graphic file (type pdf)
 <use Images/frfs_wps_vs_msa.pdf, page 1>
 Package pdftex.def Info: Images/frfs_wps_vs_msa.pdf , page1 used on input line 
@@ -638,134 +637,118 @@ Package pdftex.def Info: Images/frfs_wps_vs_msa.pdf , page1 used on input line
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\\' on input line 383.
-
-
-LaTeX Warning: Reference `sec:frfs' on page 9 undefined on input line 400.
+(hyperref)                removing `\\' on input line 389.
 
 [9
 
  <./Images/frfs_wps_vs_msa.pdf>]
-<Images/impedance_wave_propagation_solution.png, id=87, 1445.4pt x 705.38531pt>
-
+<Images/impedance_wave_propagation_solution.png, id=101, 1445.4pt x 705.38531pt
+>
 File: Images/impedance_wave_propagation_solution.png Graphic file (type png)
 <use Images/impedance_wave_propagation_solution.png>
 Package pdftex.def Info: Images/impedance_wave_propagation_solution.png  used o
-n input line 439.
+n input line 447.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 438--440
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 446--448
 []  [] 
  []
 
+[10
 
-LaTeX Warning: Reference `sec:frfs' on page 10 undefined on input line 453.
-
-[10 <./Images/impedance_wave_propagation_solution.png (PNG copy)>]
-Overfull \hbox (15.02316pt too wide) in paragraph at lines 475--478
+ <./Images/impedance_wave_propagation_solution.png (PNG copy)>]
+Overfull \hbox (15.02316pt too wide) in paragraph at lines 480--481
 []\T1/cmr/m/n/12 The driving-point impedance is com-puted at the ex-ci-ta-tion 
 point. There-fore $\OT1/cmr/m/n/12 [](\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )[][] 
 =
  []
 
-
-LaTeX Warning: Reference `sec:frfs' on page 11 undefined on input line 494.
-
-<Images/impedance_modal_superposition_approach.png, id=96, 1445.4pt x 705.38531
-pt>
+<Images/impedance_modal_superposition_approach.png, id=112, 1445.4pt x 705.3853
+1pt>
 File: Images/impedance_modal_superposition_approach.png Graphic file (type png)
 
 <use Images/impedance_modal_superposition_approach.png>
 Package pdftex.def Info: Images/impedance_modal_superposition_approach.png  use
-d on input line 500.
+d on input line 498.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 499--501
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 497--499
 []  [] 
  []
 
-<Images/impedance_wps_vs_msa.png, id=97, 1445.4pt x 705.38531pt>
+<Images/impedance_wps_vs_msa.png, id=113, 1445.4pt x 705.38531pt>
 File: Images/impedance_wps_vs_msa.png Graphic file (type png)
 <use Images/impedance_wps_vs_msa.png>
 Package pdftex.def Info: Images/impedance_wps_vs_msa.png  used on input line 50
-8.
+6.
 (pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
 
-Overfull \hbox (41.28975pt too wide) in paragraph at lines 507--509
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 505--507
 []  [] 
  []
 
+[11 <./Images/impedance_modal_superposition_approach.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 512.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 513.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 513.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 512.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 529.
 
-[11 <./Images/impedance_modal_superposition_approach.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 531.
- [12 <./Images/impedance_wps_vs_msa.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 531.
- ("D:\LaTeX\build\Assignment 4.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 531.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 531.
+[12 <./Images/impedance_wps_vs_msa.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 529.
 
-
-Package rerunfilecheck Warning: File `"Assignment 4".out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"Assignment 4".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  7C70CF8402B72117851639DAC298C98B;392.
-
-LaTeX Warning: There were undefined references.
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass04\LaTeX\build\Ass
+ignment 4.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 529.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 529.
+Package rerunfilecheck Info: File `"Assignment 4".out' has not changed.
+(rerunfilecheck)             Checksum: 7C70CF8402B72117851639DAC298C98B;392.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 531.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 529.
  ) 
 Here is how much of TeX's memory you used:
- 8975 strings out of 492973
- 130864 string characters out of 3127135
- 429573 words of memory out of 3000000
- 12645 multiletter control sequences out of 15000+200000
- 26346 words of font info for 78 fonts, out of 3000000 for 9000
+ 8985 strings out of 492973
+ 132146 string characters out of 3127135
+ 429582 words of memory out of 3000000
+ 12650 multiletter control sequences out of 15000+200000
+ 25570 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,26n,40p,1288b,377s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
 ccc1200.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecrm0600.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
-nappen\ec\dpi600\ecbx1200.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Jacu\AppData\Local\Mi
-KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Jacu\AppData
-\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Jac
-u\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\
-Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074
-.pk><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmbx8.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jacu/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Jacu/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Jacu/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Us
-ers/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr8.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Jacu/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Jacu/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb>
-Output written on "D:\LaTeX\build\Assignment 4.pdf" (12 pages, 2150043 bytes).
+nappen\ec\dpi600\ecbx1440.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\Jacu\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Jacu\AppData
+\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Jac
+u\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074.pk><C:/U
+sers/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx
+12.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmbx8.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmex10.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Jacu/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Jacu/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Jacu/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/
+Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+6.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Users/Jacu/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Jacu/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Jacu/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/latxfont/line10.pfb>
+Output written on "C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass0
+4\LaTeX\build\Assignment 4.pdf" (12 pages, 2173395 bytes).
 PDF statistics:
- 399 PDF objects out of 1000 (max. 8388607)
+ 417 PDF objects out of 1000 (max. 8388607)
  24 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
