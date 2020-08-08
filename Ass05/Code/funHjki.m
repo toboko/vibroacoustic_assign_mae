@@ -1,6 +1,6 @@
 function H_reco = funHjki(vpar, range_H) 
 % RICORDA: vpar(a,b,c) = a:picc b: mis c:parametri
-% if (size(vpar,1) ~= 1 || size(vpar,2) ~= 1 || size(vpar,3) ~= 9)
+% if (size(vpar,3) ~= 9)
 %     error('Not valid vpar');
 %end
 
