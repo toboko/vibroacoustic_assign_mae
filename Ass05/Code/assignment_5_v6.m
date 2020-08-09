@@ -237,17 +237,18 @@ while(ch< 1 || ch > 125)
    ch = input('Which channel do you want to visualize ? \n'); 
 end
 
-figure('Name', 'Comparison of experimental and identified FRFs')
+figure('Name', 'Comparison between identified and experimental FRFs')
 
-plot(freq, abs(FRF(:,ch)), 'y');
-hold on
-plot(freq, abs(FRFreco(:,ch)), 'Linewidth', 0.9, 'Color', 'g');
-hold on
-plot(freq, abs(FRF_LP(:,ch)), 'Color', 'b');
-hold on
-plot(freq(i_p(:,ch)), abs(FRF(i_p(:,ch),ch)), 'r*');
-legend('FRF', 'FRF Reco', 'FRF LP', 'picchi FRF')
-ylim([0, 1e-04])
+plot(freq, abs(FRF(:,ch)), 'r'); hold on
+plot(freq, abs(FRF_LP(:,ch)), 'Color', 'b'); hold on
+plot(freq, abs(FRFreco(:,ch)), 'Linewidth', 0.9, 'Color', 'g'); hold on
+plot(freq(i_p(:,ch)), abs(FRF(i_p(:,ch),ch)), 'k*');
+axis([-inf, inf, 0, 1e-04]);
+title(['Comparison between identified and experimental FRFs' newline 'Channel 45'], 'FontSize', 16);
+xlabel('frequency f [Hz]', 'FontSize', 12);
+ylabel('|H_{45}(f)|   [m/N]', 'FontSize', 12);
+legend('Experimental', 'Lowpassed experimental', 'Reconstructed', 'Mode peaks');
+grid minor;
 
 
 %% 3c visualization of the identified modes.
