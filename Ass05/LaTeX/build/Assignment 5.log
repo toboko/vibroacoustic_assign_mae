@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  16 JUL 2020 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6730 64-bit) (preloaded format=pdflatex 2018.12.3)  9 AUG 2020 11:34
 entering extended mode
 **"./Assignment 5.tex"
 ("Assignment 5.tex"
@@ -239,34 +239,49 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks26
 \@floatcapt=\box31
 )
-("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfigure\subfigure
-.sty"
-Package: subfigure 2002/07/30 v2.1.4 subfigure package
-\subfigtopskip=\skip46
-\subfigcapskip=\skip47
-\subfigcaptopadj=\dimen127
-\subfigbottomskip=\skip48
-\subfigcapmargin=\dimen128
-\subfiglabelskip=\skip49
-\c@subfigure=\count114
-\c@lofdepth=\count115
-\c@subtable=\count116
-\c@lotdepth=\count117
+("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-****************************************
-* Local config file subfigure.cfg used *
-****************************************
+("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.sty
+"
+Package: caption 2018/10/06 v3.3-154 Customizing captions (AR)
 
-("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\subfigure\subfigure
-.cfg")
-\subfig@top=\skip50
-\subfig@bottom=\skip51
+("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption3.st
+y"
+Package: caption3 2018/09/12 v1.8c caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 64.
+\captionmargin=\dimen127
+\captionmargin@=\dimen128
+\captionwidth=\dimen129
+\caption@tempdima=\dimen130
+\caption@indent=\dimen131
+\caption@parindent=\dimen132
+\caption@hangindent=\dimen133
+)
+\c@caption@flags=\count114
+\c@ContinuedFloat=\count115
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+)
+\c@KVtest=\count116
+\sf@farskip=\skip46
+\sf@captopadj=\dimen134
+\sf@capskip=\skip47
+\sf@nearskip=\skip48
+\c@subfigure=\count117
+\c@subfigure@save=\count118
+\c@lofdepth=\count119
+\c@subtable=\count120
+\c@subtable@save=\count121
+\c@lotdepth=\count122
+\sf@top=\skip49
+\sf@bottom=\skip50
 )
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\wrapfig\wrapfig.sty
 "
-\wrapoverhang=\dimen129
-\WF@size=\dimen130
-\c@WF@wrappedlines=\count118
+\wrapoverhang=\dimen135
+\WF@size=\dimen136
+\c@WF@wrappedlines=\count123
 \WF@box=\box32
 \WF@everypar=\toks27
 Package: wrapfig 2003/01/31  v 3.6
@@ -341,9 +356,9 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen131
-\Hy@linkcounter=\count119
-\Hy@pagecounter=\count120
+\@linkdim=\dimen137
+\Hy@linkcounter=\count124
+\Hy@pagecounter=\count125
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
 "
@@ -351,7 +366,7 @@ File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count121
+\Hy@SavedSpaceFactor=\count126
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\hyperref.c
 fg"
@@ -364,16 +379,16 @@ Package hyperref Info: Plain pages OFF on input line 4524.
 Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count122
+\c@Hy@tempcnt=\count127
  ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen132
-\Fld@menulength=\count123
-\Field@Width=\dimen133
-\Fld@charsize=\dimen134
+\XeTeXLinkMargin=\dimen138
+\Fld@menulength=\count128
+\Field@Width=\dimen139
+\Fld@charsize=\dimen140
 Package hyperref Info: Hyper figures OFF on input line 6369.
 Package hyperref Info: Link nesting OFF on input line 6374.
 Package hyperref Info: Hyper index ON on input line 6377.
@@ -383,17 +398,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6394.
 Package hyperref Info: PDF/A mode OFF on input line 6399.
 LaTeX Info: Redefining \ref on input line 6439.
 LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count124
-\c@Item=\count125
-\c@Hfootnote=\count126
+\Hy@abspage=\count129
+\c@Item=\count130
+\c@Hfootnote=\count131
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.de
 f"
 File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count127
-\c@bookmark@seq@number=\count128
+\Fld@listcount=\count132
+\c@bookmark@seq@number=\count133
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\rerunfilec
 heck.sty"
@@ -401,45 +416,47 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip52
+\Hy@SectionHShift=\skip51
 )
    defining Unicode char U+304 (decimal 772)
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.s
 ty"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
-) ("D:\LaTeX\build\Assignment 5.aux")
+)
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass05\LaTeX\build\Ass
+ignment 5.aux")
 \openout1 = `"Assignment 5.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-\c@lstlisting=\count129
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+\c@lstlisting=\count134
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mki
 i"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
-\scratchdimen=\dimen135
+\scratchcounter=\count135
+\scratchdimen=\dimen141
 \scratchbox=\box33
-\nofMPsegments=\count131
-\nofMParguments=\count132
+\nofMPsegments=\count136
+\nofMParguments=\count137
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count133
-\MPscratchDim=\dimen136
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
+\MPscratchCnt=\count138
+\MPscratchDim=\dimen142
+\MPnumerator=\count139
+\makeMPintoPDFobject=\count140
 \everyMPtoPDFconversion=\toks29
 )
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-b
@@ -492,8 +509,13 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 49.
+Package hyperref Info: Link coloring OFF on input line 50.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.st
 y"
@@ -503,57 +525,145 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 string.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count136
+\c@section@level=\count141
 )
-LaTeX Info: Redefining \ref on input line 49.
-LaTeX Info: Redefining \pageref on input line 49.
-LaTeX Info: Redefining \nameref on input line 49.
- ("D:\LaTeX\build\Assignment 5.out")
-("D:\LaTeX\build\Assignment 5.out")
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
+
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass05\LaTeX\build\Ass
+ignment 5.out")
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass05\LaTeX\build\Ass
+ignment 5.out")
 \@outlinefile=\write4
 \openout4 = `"Assignment 5.out"'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+LaTeX Font Info:    Try loading font information for U+msa on input line 53.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+LaTeX Font Info:    Try loading font information for U+msb on input line 53.
 
 ("C:\Users\Jacu\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
+<Images/frf_rec_vs_exp_ch45.png, id=11, 1445.4pt x 705.38531pt>
+File: Images/frf_rec_vs_exp_ch45.png Graphic file (type png)
+<use Images/frf_rec_vs_exp_ch45.png>
+Package pdftex.def Info: Images/frf_rec_vs_exp_ch45.png  used on input line 77.
+
+(pdftex.def)             Requested size: 578.14977pt x 282.14912pt.
+
+Overfull \hbox (41.28975pt too wide) in paragraph at lines 76--78
+[]  [] 
+ []
 
 [1
 
 {C:/Users/Jacu/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+<Images/mode_1.png, id=27, 956.82469pt x 697.8572pt>
+File: Images/mode_1.png Graphic file (type png)
+<use Images/mode_1.png>
+Package pdftex.def Info: Images/mode_1.png  used on input line 89.
+(pdftex.def)             Requested size: 239.20558pt x 174.46387pt.
+<Images/mode_2.png, id=28, 956.82469pt x 697.8572pt>
+File: Images/mode_2.png Graphic file (type png)
+<use Images/mode_2.png>
+Package pdftex.def Info: Images/mode_2.png  used on input line 90.
+(pdftex.def)             Requested size: 239.20558pt x 174.46387pt.
+<Images/mode_3.png, id=29, 957.5775pt x 697.8572pt>
+File: Images/mode_3.png Graphic file (type png)
+<use Images/mode_3.png>
+Package pdftex.def Info: Images/mode_3.png  used on input line 91.
+(pdftex.def)             Requested size: 239.39378pt x 174.46387pt.
+<Images/mode_4.png, id=30, 960.58875pt x 697.8572pt>
+File: Images/mode_4.png Graphic file (type png)
+<use Images/mode_4.png>
+Package pdftex.def Info: Images/mode_4.png  used on input line 92.
+(pdftex.def)             Requested size: 240.14659pt x 174.46387pt.
+<Images/mode_5.png, id=31, 960.58875pt x 697.8572pt>
+File: Images/mode_5.png Graphic file (type png)
+<use Images/mode_5.png>
+Package pdftex.def Info: Images/mode_5.png  used on input line 93.
+(pdftex.def)             Requested size: 240.14659pt x 174.46387pt.
+<Images/mode_6.png, id=32, 960.58875pt x 697.8572pt>
+File: Images/mode_6.png Graphic file (type png)
+<use Images/mode_6.png>
+Package pdftex.def Info: Images/mode_6.png  used on input line 94.
+(pdftex.def)             Requested size: 240.14659pt x 174.46387pt.
 
-("D:\LaTeX\build\Assignment 5.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
-Package rerunfilecheck Info: File `"Assignment 5".out' has not changed.
-(rerunfilecheck)             Checksum: 0273B9FE41E9E267FBD387EB6149DFFF;159.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 69.
+Overfull \hbox (20.68779pt too wide) in paragraph at lines 89--95
+[][] [][] 
+ []
+
+
+Overfull \hbox (21.817pt too wide) in paragraph at lines 89--95
+[][] [][] 
+ []
+
+
+Overfull \hbox (22.56981pt too wide) in paragraph at lines 89--95
+[][] [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--95
+
+ []
+
+<Images/mode_7.png, id=33, 961.34157pt x 697.8572pt>
+File: Images/mode_7.png Graphic file (type png)
+<use Images/mode_7.png>
+Package pdftex.def Info: Images/mode_7.png  used on input line 96.
+(pdftex.def)             Requested size: 240.33481pt x 174.46387pt.
+[2 <./Images/frf_rec_vs_exp_ch45.png (PNG copy)>]
+Overfull \vbox (28.35547pt too high) has occurred while \output is active []
+
+
+[3 <./Images/mode_1.png (PNG copy)> <./Images/mode_2.png (PNG copy)> <./Images/
+mode_3.png (PNG copy)> <./Images/mode_4.png (PNG copy)> <./Images/mode_5.png (P
+NG copy)> <./Images/mode_6.png (PNG copy)> <./Images/mode_7.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 103.
+
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 103.
+
+("C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass05\LaTeX\build\Ass
+ignment 5.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 103.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 103.
+
+
+Package rerunfilecheck Warning: File `"Assignment 5".out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `"Assignment 5".out':
+(rerunfilecheck)             Before: 0273B9FE41E9E267FBD387EB6149DFFF;159
+(rerunfilecheck)             After:  6B81C93E526E544CAA0A4C1211D122F0;424.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 103.
  ) 
 Here is how much of TeX's memory you used:
- 8778 strings out of 492973
- 126781 string characters out of 3127135
- 420755 words of memory out of 3000000
- 12515 multiletter control sequences out of 15000+200000
- 13922 words of font info for 41 fonts, out of 3000000 for 9000
+ 9926 strings out of 492973
+ 148632 string characters out of 3127135
+ 445579 words of memory out of 3000000
+ 13617 multiletter control sequences out of 15000+200000
+ 23243 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,6n,40p,227b,335s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,8n,42p,753b,393s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\e
-cbx1440.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
+ccc1200.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec
 \dpi600\ecrm1200.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jk
-nappen\ec\dpi600\ecbx1728.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\
-ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\
-fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074.pk>
-Output written on "D:\LaTeX\build\Assignment 5.pdf" (1 page, 46468 bytes).
+nappen\ec\dpi600\ecbx1440.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\fonts\pk\
+ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Users\Jacu\AppData\Local\MiKTeX\2.9\
+fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1440.pk> <C:\Users\Jacu\AppData\Local\Mi
+KTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm2074.pk><C:/Users/Jacu/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on "C:\Users\Jacu\Documents\GitHub\vibroacoustic_assign_mae\Ass0
+5\LaTeX\build\Assignment 5.pdf" (4 pages, 1779545 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 4 named destinations out of 1000 (max. 500000)
- 17 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 500000)
+ 57 words of extra memory for PDF output out of 10000 (max. 10000000)
 

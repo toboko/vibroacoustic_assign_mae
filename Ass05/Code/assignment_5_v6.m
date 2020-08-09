@@ -1,10 +1,13 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%       ASSIGNMENT 05       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    FUNDAMENTALS OF VIBRATION ANALYSIS AND VIBROACOUSTICS     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       MODULE 2 - VIBROACOUSTICS OF MUSICAL INSTRUMENTS       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%    ASSIGNMENT 2 - EXPERIMENTAL MODAL ANALYSIS OF A VIOLIN    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-clc
-clear
-close all
+clc, clear, close all
+
 
 % Importing experimental data
 load("Data.mat");
@@ -13,6 +16,7 @@ disp("Data loaded.");
 
 % xy_bt back plate
 % xy_bf top  plate
+
 
 %% FRF scala
 omega = 2*pi.*freq + 1e-10;
@@ -103,11 +107,7 @@ if (in1 ==2)
 for mm = 1:C       % over the n measurements
         R = Nmodes;
 
-        for pp = 1:R % over the p peaks
-            if (mm == 55 && pp == 4)
-                recoaro = 94;
-            end
-            
+        for pp = 1:R % over the p peaks            
             i_peak = indices(pp);
             
             % Function reduced to the range of interest
@@ -141,9 +141,12 @@ for mm = 1:C       % over the n measurements
             derPh = (angleFRF(i_peak+safe,mm) - angleFRF(i_peak-safe,mm)) ...
                              ./(2*pi*(freq(i_peak+safe)-freq(i_peak-safe)));
             %derPh = (angle(FRF(i_peak+safe,mm))- angle(FRF(i_peak-safe,mm)))./(2*pi*(freq(i_peak+safe)-freq(i_peak-safe)));
-             if (derPh > -3e-02 )
-                 derPh = -1e03;
-             end
+%              if (derPh > -3e-02 )
+%                  derPh = -1e03;
+%              end
+            if (derPh < 1e03)
+                derPh = -1e00;
+            end
             derPhmatrix(pp,mm) = derPh;
 
             csi0i = -1./(w_peak.*derPh);
@@ -170,8 +173,8 @@ for mm = 1:C       % over the n measurements
             safe = 25;
 %             lb = [1e-05; omegaRange(1); -Inf.*ones(6,1)];
 %             ub = [0.2; omegaRange(end); Inf.*ones(6,1) ];
-            lb = [0; w_peak-safe ; -5.*ones(6,1)];
-            ub = [0.1; w_peak+safe ; 5.*ones(6,1) ];
+            lb = [0; w_peak-safe ; -50*ones(6,1)];
+            ub = [0.1; w_peak+safe ; 50*ones(6,1) ];
 %             lb = [];
 %             ub = [];
             xpar=lsqnonlin(@(xpar) err_i(xpar , rangeFreq , FRFexp), xpar0, lb, ub, options);
@@ -192,8 +195,7 @@ for mm = 1:C       % over the n measurements
             
             % Reconstruction
             %FRFreco(iini:ifin,mm) = funHjki(vpar(pp,mm,:), rangeFreq);
-            %     giustapposte
-
+            %disp("Peak " + num2str(pp) + " done.");
         end
         disp("Measurement " + num2str(mm) + " done.");
 end
@@ -250,19 +252,23 @@ ylim([0, 1e-04])
 
 %% 3c visualization of the identified modes.
 
-modo = input('Which mode do you want to visualize ? \n');
-while(modo< 1 || modo > Nmodes)
-   disp("Insert a valid mode index (<= " + num2str(Nmodes) + " ) ");
-   modo = input('Which mode do you want to visualize ? \n'); 
-end
-disp("Natural frequency: " + num2str(f_nat(modo)) + " Hz");
+% modo = input('Which mode do you want to visualize ? \n');
+% while(modo< 1 || modo > Nmodes)
+%    disp("Insert a valid mode index (<= " + num2str(Nmodes) + " ) ");
+%    modo = input('Which mode do you want to visualize ? \n'); 
+% end
+% disp("Natural frequency: " + num2str(f_nat(modo)) + " Hz");
 
+csi_mean = mean(csi(:,:,1),2);
+
+for i = 1:Nmodes
 
 figure
+sgtitle(sprintf('Mode %d, natural frequency %.1f Hz, damping ratio %.2f', i, f_nat(i), csi_mean(i)*100), 'FontSize', 16);
 %Top
 subplot(1,2,1)
 
-F_t = scatteredInterpolant(xy(1:58,1),xy(1:58,2), Xi_t(modo,:)', ...
+F_t = scatteredInterpolant(xy(1:58,1),xy(1:58,2), Xi_t(i,:)', ...
     'natural', 'none');
 [X_t,Y_t] = meshgrid(min(xy(1:58,1)):0.05:max(xy(1:58,1)), ...
     min(xy(1:58,2)):0.05:max(xy(1:58,2)));
@@ -284,10 +290,12 @@ xlim([-10, +10]); ylim([0, 35]);
 caxis([-1 +1]);
 hold off
 
+title('Front plate', 'FontSize', 12);
+
 %Bottom
 subplot(1,2,2)
 
-F_b = scatteredInterpolant(xy(59:end,1),xy(59:end,2), Xi_b(modo,:)', ...
+F_b = scatteredInterpolant(xy(59:end,1),xy(59:end,2), Xi_b(i,:)', ...
     'natural', 'none');
 [X_b,Y_b] = meshgrid(min(xy(59:end,1)):0.05:max(xy(59:end,1)), ...
     min(xy(59:end,2)):0.05:max(xy(59:end,2)));
@@ -356,11 +364,8 @@ caxis([-1 +1]);
 
 hold off
 
+title('Back plate', 'FontSize', 12);
 
+end
 
-
-
-
-
-
-
+csis = [0.6, 0.6, 0.8, 0, 0, 1.2, 0; 0.62, 0.58, 0.86, 0.59, 1.26, 1.21, 1.68; [0.00911731052116327, 0.00833520312205319, 0.00873127832851640, 0.00642083648408587, 0.0164981132874108, 0.0130281237120128, 0.0161938724587724] * 100; csi_mean' * 100]';

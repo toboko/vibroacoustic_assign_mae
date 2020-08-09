@@ -1,2 +1,6 @@
 \BOOKMARK [1][-]{section.1}{Matlab code for mode identification}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Initial guess for minimization process}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Software testing}{}% 3
+\BOOKMARK [1][-]{section.3}{Results}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Comparison between reconstructed and experimental FRFs}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.2}{Identified modes}{section.3}% 6
