@@ -1,6 +1,11 @@
-\BOOKMARK [1][-]{section.1}{Matlab code for mode identification}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Initial guess for minimization process}{section.1}% 2
-\BOOKMARK [1][-]{section.2}{Software testing}{}% 3
-\BOOKMARK [1][-]{section.3}{Results}{}% 4
-\BOOKMARK [2][-]{subsection.3.1}{Comparison between reconstructed and experimental FRFs}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.2}{Identified modes}{section.3}% 6
+\BOOKMARK [1][-]{section.1}{Matlab code for modes identification}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Minimization algorithm}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Error minimization problem}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{FRF Reconstruction}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Software testing}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Data pre-processing}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Peaks' search}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Results}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Comparison between reconstructed and experimental FRFs}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Modal parameters}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Identified modes}{section.3}% 11

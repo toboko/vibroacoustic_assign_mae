@@ -58,8 +58,7 @@ Nmodes = length(indices);
 indices = indices + iini;
 disp(num2str(Nmodes) + " modes found.");
 
-%% 2) Finding natural frequencies, damping ratios and mode shapes with simplified methods
-
+%% 2) Finding natural frequencies et ranges
 % Natural frequencies
 f_nat = freq(indices);
 
@@ -369,4 +368,5 @@ title('Back plate', 'FontSize', 12);
 
 end
 
+%% Auxiliar plots and other stuff
 csis = [0.6, 0.6, 0.8, 0, 0, 1.2, 0; 0.62, 0.58, 0.86, 0.59, 1.26, 1.21, 1.68; [0.00911731052116327, 0.00833520312205319, 0.00873127832851640, 0.00642083648408587, 0.0164981132874108, 0.0130281237120128, 0.0161938724587724] * 100; csi_mean' * 100]';
