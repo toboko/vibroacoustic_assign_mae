@@ -91,10 +91,20 @@ clear yy wp_sx wp_dx min_index
 
 %vpar = zeros(size(indices,1), size(indices,2), 9);
 
+% Plot showing minima and maxima of mean FRF
+figure('Name', 'Mean FRF''s modulus')
+plot(freq, abs(FRFmean)); hold on
+plot(freq(indices), abs(FRFmean(indices)), 'r*');
+axis([-inf, inf, 0, 1e-4]);
+title('Mean FRF''s modulus', 'FontSize', 16);
+xlabel('frequency f [Hz]', 'FontSize', 12);
+ylabel('|G^{mean}(f)|   [m/N]', 'FontSize', 12);
+grid minor
+
 %% Minimizzazione
 in1 = input('Load Minimization Data (1) or do a new minimization (2) ? \n');
 
-if (in1 ==2)
+if (in1 == 2)
     disp("Minimization started."); tic
     FRFreco = zeros(size(FRF));
     % RICORDA: vpar(a,b,c) = a:picc b: mis c:parametri
@@ -230,10 +240,32 @@ Xi_t = (vpar_t(:,:,4));
 Xi_b = (vpar_b(:,:,4));
 
 %% 3b comparison of experimental and identified FRFs (for a certain reference channel);
-ch = input('Which channel do you want to visualize ? \n');
-while(ch< 1 || ch > 125)
-   disp("Insert a valid channel index (<= 125 )\n");
-   ch = input('Which channel do you want to visualize ? \n'); 
+
+% ch = input('Which channel do you want to visualize ? \n');
+% while(ch< 1 || ch > 125)
+%    disp("Insert a valid channel index (<= 125 )\n");
+%    ch = input('Which channel do you want to visualize ? \n'); 
+% end
+
+figure('Name', 'Comparison between identified and experimental FRFs')
+
+for mode = 1:Nmodes
+    for ch = 1:size(FRF,2)
+        hold off
+        plot(freq(rfi(ch,mode):rfi(ch,mode+1)), abs(FRF((rfi(ch,mode):rfi(ch,mode+1)),ch)), 'r'); hold on
+        plot(freq(rfi(ch,mode):rfi(ch,mode+1)), abs(FRFreco((rfi(ch,mode):rfi(ch,mode+1)),ch)), 'Linewidth', 0.9, 'Color', 'g');
+        axis([-inf, inf, 0, max([max(abs(FRF((rfi(ch,mode):rfi(ch,mode+1)),ch))), max(abs(FRFreco((rfi(ch,mode):rfi(ch,mode+1)),ch)))])*1.1]);
+        title(sprintf(['Comparison between identified and experimental FRFs' newline 'Mode %d - Channel %d'], mode, ch), 'FontSize', 16);
+        xlabel('frequency f [Hz]', 'FontSize', 12);
+        ylabel(sprintf('|H_{%d}^{%d}(f)|   [m/N]', ch, mode), 'FontSize', 12);
+        legend('Experimental', 'Reconstructed');
+        grid minor;
+
+        resp = input('Press ''s'' to skip to next mode, press any other key to go on \n', 's');
+        if (strcmp(resp, 's'))
+            break
+        end
+    end
 end
 
 figure('Name', 'Comparison between identified and experimental FRFs')
@@ -264,7 +296,7 @@ csi_mean = mean(csi(:,:,1),2);
 for i = 1:Nmodes
 
 figure
-sgtitle(sprintf('Mode %d, natural frequency %.1f Hz, damping ratio %.2f', i, f_nat(i), csi_mean(i)*100), 'FontSize', 16);
+sgtitle(sprintf('Mode %d, natural frequency %.1f Hz, damping ratio %.2f%%', i, f_nat(i), csi_mean(i)*100), 'FontSize', 16);
 %Top
 subplot(1,2,1)
 
@@ -314,49 +346,7 @@ plot(xy(59:end,1),xy(59:end,2), 'sr')  % sensors %
 xlim([-10, +10]); ylim([0, 35]);
 
 caxis([-1 +1]);
-%{
-[X_t,Y_t] = meshgrid(min(xy(1:58,1)):0.1:max(xy(1:58,1)), ...
-    min(xy(1:58,2)):0.1:max(xy(1:58,2)));
-b = boundary(xy(1:58,1), xy(1:58,2));
-inmask = inpolygon(X_t(:), Y_t(:), xy(b,1), xy(b,2));
 
-F_t = scatteredInterpolant(xy(1:58,1),xy(1:58,2), Xi_t(modo,:)', ...
-    'natural', 'none');
-Z_t = F_t(X_t,Y_t);
-Z_t(~inmask) = NaN;
-%Z_t = rescale(Z_t, -1 , +1);
-
-s = pcolor(X_t,Y_t,Z_t);
-s.LineStyle = 'none';
-
-hold on
-plot(xy_bt(:,1),xy_bt(:,2), '.b') % body 
-plot(xy(1:58,1),xy(1:58,2), 'sr') % sensors 
-xlim([-10, +10]); ylim([0, 35]);
-
-hold off 
-
-%Bottom
-subplot(1,2,2)
-
-[X_b,Y_b] = meshgrid(min(xy(59:end,1)):0.1:max(xy(59:end,1)), ...
-    min(xy(59:end,2)):0.1:max(xy(59:end,2)));
-b = boundary(xy(1:58,1), xy(1:58,2));
-inmask = inpolygon(X_b(:), Y_b(:), xy(b,1), xy(b,2));
-F_b = scatteredInterpolant(xy(59:end,1),xy(59:end,2), Xi_b(modo,:)', ...
-    'natural', 'none');
-Z_b = F_b(X_b,Y_b);
-Z_b(~inmask) = NaN;
-%Z_b = rescale(Z_b , -1 , +1);
-
-s = pcolor(X_b,Y_b,Z_b);
-s.LineStyle = 'none';
-
-hold on
-plot(xy_bf(:,1),xy_bf(:,2), '.b') % body %
-plot(xy(59:end,1),xy(59:end,2), 'sr')  % sensors %
-xlim([-10, +10]); ylim([0, 35]);
-%}
 colormap jet;
 cb=colorbar;
 cb.Position = cb.Position + [0.11, 0, 0, 0];

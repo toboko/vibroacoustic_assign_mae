@@ -69,12 +69,12 @@
 
 
 \section{\textsc{Matlab} code for modes identification}
-%%introduzione - vedi slides
+
 Starting from the experimental data collected into \lstinline!Data.mat! file we implemented the \textsc{Matlab} script for identifying the modes according to the
 procedure described in laboratory slides.
 
 \subsection{Minimization algorithm}
-%%descrivi script
+
 In order to study the vibrational modes of the violin starting from these experimental data, we refer to the \textbf{modal approach}, that describes the overall frequency response of a structure as superposition of $ N $ modes of vibration, as far as enough modes are considered:
 
 \begin{equation}
@@ -190,7 +190,7 @@ Firstly we tried to implement this procedure using \lstinline!fminsearch! functi
 
 where \lstinline!f(x)! is a function that returns a scalar, and \lstinline!x! is a vector or a matrix. 
 
-In our case \lstinline!x! is a set of modal parameters vectors (one for each measurement) and \lstinline!f(x)! should be the error function seen in eq. \ref{eqn:error_fun}.
+In our case \lstinline!x! is a set of modal parameters vectors (one for each measurement) and \lstinline!f(x)! should be the error function seen in eq. (\ref{eqn:error_fun}).
 
 This approach led to a runtime of almost an hour.
 
@@ -208,7 +208,7 @@ Rather than computing the value $ ||f(x)||_2^2 $ (the sum of squares), \lstinlin
 		\begin{bmatrix} f_1 (x) \\ f_2 (x) \\ \vdots \\ f_n (x) \end{bmatrix}
 \]
 
-In other words,\lstinline!x = lsqnonlin(fun, x0)! starts at the point \lstinline!lsqnonlin(fun,x0)! and finds a minimum of the sum of squares of the functions described in \lstinline!fun!. The function \lstinline!fun! should return a vector (or array) of values and not the sum of squares of the values. The algorithm implicitly computes the sum of squares of the components of \lstinline!fun(x)!.
+In other words, \lstinline!x = lsqnonlin(fun, x0)! starts at the point \lstinline!lsqnonlin(fun,x0)! and finds a minimum of the sum of squares of the functions described in \lstinline!fun!. The function \lstinline!fun! should return a vector (or array) of values and not the sum of squares of the values. The algorithm implicitly computes the sum of squares of the components of \lstinline!fun(x)!.
 
 This function forces us to use a slightly simplified version of the \textbf{error function}:
 \begin{equation}
@@ -251,12 +251,12 @@ Setting $ m_i = X_r^{(i)} $, the normalized mode shape at each of the $ k $ loca
 Other useful modal parameters can be found in function of the previous ones:
 
 \begin{gather*}
-	c = 2 m_i \omega_i \xi_i \\
-	k = \omega_i^2 m_i
+	c_i = 2 m_i \omega_i \xi_i \\
+	k_i = \omega_i^2 m_i
 \end{gather*}
 
 \subsection{FRF Reconstruction}
-The FRFs are reconstructed using the custom function \lstinline!reco.m!. It takes as input a vector with modal parameters and gives as output the reconstructed FRF, using the formulation seen in eq. \ref{eqn:h_approx}.
+The FRFs are reconstructed using the custom function \lstinline!reco.m!. It takes as input a vector with modal parameters and gives as output the reconstructed FRF, using the formulation seen in eq. (\ref{eqn:h_exp_modal}).
 
 \begin{lstlisting}[caption = {Snippet of code from \texttt{reco.m}}]
 	for mm = 1:meas
@@ -272,7 +272,7 @@ Quality of the estimates can be visually assessed comparing in a plot the
 identified FRFs $ G^\textup{NUM} $ with the experimental ones $ G^\textup{EXP} $ . We will see it in the next sections.
 
 \section{Software testing}
-%%qui desccrivi prima parte dello script
+
 \subsection{Data pre-processing}
 
 The given \lstinline!Data.mat! file contains experimental FRFs $ [m / s^2 N] $ that have been obtained performing a hammer test on a violin, following a roving hammer procedure, that consists in fixing the measurement position(s) while varying excitation location.
@@ -288,26 +288,41 @@ To sum up, \lstinline!Data.mat! contains the frequency vector (\lstinline!freq!)
 First of all we converted the unit of measurement of the FRFs from an acceleration over a force $ [m / s^2 N] $ to a displacement over a force $ [m / N] $. To do so we divided the FRFs by the vector $ \omega^2 $ using the function \lstinline!repmat!.
 
 Being the frequency response spectra very noisy, we decided to smooth them out, extracting only the envelope.
-In order to help us in peaks' identification we also averaged the smoothed FRFs. We used the obtained function for searching for peaks.
 
-\subsection{Peaks' search}
+\subsection{Peak search}
 \label{peak_search} 
 
-The following snippet of code in used for searching for peaks.
+The steps we followed to identify the resonance frequencies, which correspond to the relative maxima of the module diagram of the FRFs:
 
-\begin{lstlisting}[caption = {Peaks' search}]
-	prom = 0.000003;
-	width = 8;
-	tr = 0;
-	iini = 500;
-	[~, indices] = findpeaks(FRFmean(iini:end), 'MinPeakProminence', prom, 'MinPeakWidth',
-		width, 'Threshold', tr);
-	Nmodes = length(indices);
-	indices = indices + iini;
-\end{lstlisting}
+\begin{itemize}
+	\item Computing the mean FRF over all the low-passed FRFs, considering those measured for points on the front plate together with those for points on the back plate, and we low-passed again the result. This way, we would be quite sure to identify vibration modes in common between the two plates.
 
-As it can be seen the first 500 samples are discarded in order not to consider the initial part of the FRF that diverges.
-%% PERCHé diverge?
+		\begin{figure}[H]
+			\hspace{-70pt}
+			\includegraphics[scale=0.4]{frf_mean}
+		\end{figure}
+
+	\item Using \lstinline!findpeaks! to identify the most evident maxima in the mean FRF. In particular, the following snippet of code in used for searching for peaks.
+
+		\begin{lstlisting}[caption = {Peaks' search}]
+			prom = 0.000003;
+			width = 8;
+			tr = 0;
+			iini = 500;
+			[~, indices] = findpeaks(FRFmean(iini:end), 'MinPeakProminence', prom,
+				'MinPeakWidth',	width, 'Threshold', tr);
+			Nmodes = length(indices);
+			indices = indices + iini;
+		\end{lstlisting}
+
+As it can be seen the first 500 samples are discarded in order not to consider the initial part of the FRF that diverges. This can be attributed to the structure used for holding the violin, so we're allowed to pretend the FRF starts after this region.
+
+	\item Finding the frequency value associated with each peak. These constitute the first-guess-values for the minimization process as for the natural frequencies.
+
+\end{itemize}
+
+%\clearpage
+
 
 \section{Results}
 
@@ -320,33 +335,56 @@ Our \textsc{Matlab} script identifies 7 modes. Considering one of the 125 input-
 	\includegraphics[scale=0.4]{frf_rec_vs_exp_ch45}
 \end{figure}
 
-Taking a closer look at each identified vibration mode, we may appreciate even more the fact a non-noisy FRF has been analitically obtained:
+Taking a closer look at some of the identified vibration modes, we may appreciate even more the fact a non-noisy FRF has been analitically obtained:
+
+\begin{figure}[H]
+	\hspace{-70pt}
+	\subfloat{\includegraphics[scale=0.2]{frf_rec_vs_exp_mode1_channel124}}
+	\subfloat{\includegraphics[scale=0.2]{frf_rec_vs_exp_mode3_channel39}}
+\end{figure}
+\begin{figure}[H]
+	\hspace{-70pt}
+	\subfloat{\includegraphics[scale=0.2]{frf_rec_vs_exp_mode4_channel44}}
+	\subfloat{\includegraphics[scale=0.2]{frf_rec_vs_exp_mode6_channel115}}
+\end{figure}
 
 \subsection{Modal parameters}
-%Manca
-% summarize the results in terms of  natural frequencies and damping ratios;
+
+The results in terms of natural frequencies and damping ratios for the 7 identified modes can be summarized in the following table.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{ccc}
+		Mode	& Frequency {[}Hz{]}	& Damping ratio (\%) \\
+		1		& 180.8						& 0.91\% \\
+		2		& 267.8						& 0.78\% \\
+		3		& 448.8						& 0.75\% \\
+		4		& 488.2						& 0.58\% \\
+		5		& 562.6						& 1.08\% \\
+		6		& 733.6						& 1.22\% \\
+		7		& 814.2						& 1.49\%
+	\end{tabular}
+\end{table}
 
 \subsection{Identified modes}
 
 The following plots summarize the characteristics of the vibration modes of the violin plates: for each of them, we're displaying natural frequency, adimensional damping ratio (percentage) and a graphical representation of the mode shape, indicating the displacement of the points on the surface with respect to each other for that particular oscillation mode.
 
 \begin{figure}[H]
-	\subfloat{\includegraphics[scale=0.25]{mode_1}} \quad
-	\subfloat{\includegraphics[scale=0.25]{mode_2}} \\
-	\subfloat{\includegraphics[scale=0.25]{mode_3}} \quad
-	\subfloat{\includegraphics[scale=0.25]{mode_4}} \\
-	\subfloat{\includegraphics[scale=0.25]{mode_5}} \quad
-	\subfloat{\includegraphics[scale=0.25]{mode_6}} \\
+	\subfloat{\includegraphics[scale=0.25]{violin_mode_1}} \quad
+	\subfloat{\includegraphics[scale=0.25]{violin_mode_2}} \\
+	\subfloat{\includegraphics[scale=0.25]{violin_mode_3}} \quad
+	\subfloat{\includegraphics[scale=0.25]{violin_mode_4}} \\
+\end{figure}
+\begin{figure}[H]
+	\subfloat{\includegraphics[scale=0.25]{violin_mode_5}} \quad
+	\subfloat{\includegraphics[scale=0.25]{violin_mode_6}} \\
 	\begin{center}
-		\subfloat{\includegraphics[scale=0.25]{mode_7}}
+		\subfloat{\includegraphics[scale=0.25]{violin_mode_7}}
 	\end{center}
 \end{figure}
 
 As we could infer a priori, the mode shape is more and more complex as the resonating frequency increases: in the first two modes, we can easily identify two main oscillating areas (the upper part and the lower part of the plate), in accordance between top and back plate. In the third one, there are four, with crossed polarization and accordance between top and back plate, and so on. As the mode number increases, the two plates start decouple one from the other, and the oscillation modes may not correspond anymore. This is due to the fact the higher the frequencies, the more top and back plate exhibit different modes. Talking about the damping ratio, this is on average lower at lower frequencies than at higher ones.
-
-%TO DO
-%- Comparison between experimental and numerical FRFs . Scegliamo un modo e una misurazione e facciamo vedere che funziona. Possiamo farlo vedere per più casi. (sez 3a)
-%- sezione 3b - summarize the results in terms of natural frequencies and damping ratios; (vedi ass amici nostri)
 
 
 \end{document}
